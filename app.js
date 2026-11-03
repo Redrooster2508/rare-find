@@ -216,7 +216,7 @@ function renderSetup() {
   };
 
   document.getElementById("reset").onclick = () => {
-    if (!confirm("Forget every answer this device has learned, all accepted answers, and the hall of fame?")) return;
+    if (!confirm("Forget every answer this device has learned, and the hall of fame?")) return;
     game.reset();
     location.reload();
   };
@@ -334,16 +334,6 @@ function submitAnswer(text) {
   else showReveal();
 }
 
-function acceptAnswer(idx) {
-  const r = state.results[idx];
-  const res = state.game.accept(currentQuestion().id, r.input);
-  const p = state.players[r.player];
-  p.score += res.points;
-  trackBest(p, res);
-  state.results[idx] = { player: r.player, houseRule: true, ...res };
-  showReveal(false);
-}
-
 function meterHTML(r) {
   const order = [...BRACKETS].reverse(); // common → rare, left to right
   const idx = order.findIndex((b) => b.key === r.bracket.key);
@@ -368,7 +358,6 @@ function resultHTML(r, i, animate) {
           <div class="ans">${r.input ? `“${esc(r.input)}”` : "—"}</div>
           <span class="badge none">${esc(r.reason)}</span>
           <div class="stat">${r.input ? "That answer isn't on our list for this question." : "Time ran out before an answer was submitted."}</div>
-          ${r.input ? `<button class="ghost small" data-accept="${i}" type="button">It's valid, accept it</button>` : ""}
         </div>
         <div class="points">0<small>points</small></div>
       </div>
@@ -382,7 +371,7 @@ function resultHTML(r, i, animate) {
         ${multi ? `<div class="who">${esc(p.name)}</div>` : ""}
         <div class="ans">${esc(r.answer)}</div>
         ${typedDiffers ? `<div class="typed">you typed “${esc(r.input)}”</div>` : ""}
-        <span class="badge">${esc(r.bracket.name)}</span>${r.houseRule ? ` <span class="badge none">accepted by players</span>` : ""}
+        <span class="badge">${esc(r.bracket.name)}</span>
         <div class="stat">${r.pct}% of answers: ${people} out of ${r.total} said this before you.</div>
       </div>
       <div class="points"><span data-count="${r.points}">${animate ? 0 : r.points}</span><small>points</small></div>
@@ -425,9 +414,6 @@ function showReveal(animate = true) {
   };
   if (animate) requestAnimationFrame(settle); else settle();
 
-  app.querySelectorAll("[data-accept]").forEach((b) => {
-    b.onclick = () => acceptAnswer(Number(b.dataset.accept));
-  });
   const next = document.getElementById("next");
   next.focus();
   next.onclick = () => {

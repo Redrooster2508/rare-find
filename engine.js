@@ -68,6 +68,23 @@ function editDistance(a, b, limit) {
   return prev[b.length];
 }
 
+/**
+ * Rough "sounds like" key for each word, so spellings that sound the same
+ * collide: "derek ray" and "derrick rae" both become "drk r".
+ */
+function phonetic(text) {
+  return baseNorm(text).split(" ").map((word) => {
+    let w = word.replace(/[^a-z]/g, "");
+    if (!w) return "";
+    w = w.replace(/^(kn|gn|pn|wr|ps)/, (m) => m[1])
+      .replace(/ph/g, "f").replace(/ck/g, "k").replace(/sch/g, "sk").replace(/tch/g, "ch")
+      .replace(/dg(?=[eiy])/g, "j").replace(/c(?=[eiy])/g, "s").replace(/[cq]/g, "k")
+      .replace(/x/g, "ks").replace(/z/g, "s").replace(/gh(?![aeiou])/g, "").replace(/wh/g, "w");
+    const head = /[aeiouy]/.test(w[0]) ? "a" : w[0];
+    return (head + w.slice(1).replace(/[aeiouyhw]/g, "")).replace(/(.)\1+/g, "$1");
+  }).filter(Boolean).join(" ");
+}
+
 function rankSeeds(n) {
   const weights = Array.from({ length: n }, (_, r) => 1 / (r + 1) ** ZIPF_EXPONENT);
   const total = weights.reduce((s, w) => s + w, 0);
@@ -107,6 +124,7 @@ export class Question {
         if (!held || tier < held.tier) this.index.set(key, { pos, tier });
       });
       this.phrases.push([baseNorm(n), pos]);
+      this.sounds.push([phonetic(n), baseNorm(n).replace(/ /g, ""), pos]);
     }
   }
 
@@ -114,6 +132,7 @@ export class Question {
     if (this.index) return;
     this.index = new Map(); // lookup key -> answer position
     this.phrases = []; // [spaced key, position] for partial-title matching
+    this.sounds = []; // [phonetic key, compact spelling, position] for sound-alike matching
     this.entries.forEach((_, pos) => this.indexEntry(pos));
   }
 
@@ -133,16 +152,31 @@ export class Question {
       }
       if (best !== null) return best;
     }
-    // Forgive small typos on longer words.
+    // Forgive typos: more slack the longer the word ("libray" -> "library").
     probe = keys[keys.length - 1];
-    const limit = probe.length >= 9 ? 2 : probe.length >= 5 ? 1 : 0;
-    if (!limit) return null;
+    const limit = probe.length >= 12 ? 3 : probe.length >= 7 ? 2 : probe.length >= 4 ? 1 : 0;
     let best = null;
     let bestDist = limit + 1;
-    for (const [key, { pos }] of this.index) {
-      if (key.includes(" ")) continue;
-      const d = editDistance(probe, key, limit);
-      if (d < bestDist) [best, bestDist] = [pos, d];
+    if (limit) {
+      for (const [key, { pos }] of this.index) {
+        // Short words must keep their first letter, so "bear" isn't read as "pear".
+        if (key.includes(" ") || (probe.length < 7 && key[0] !== probe[0])) continue;
+        const d = editDistance(probe, key, limit);
+        if (d < bestDist) [best, bestDist] = [pos, d];
+      }
+    }
+    if (best !== null) return best;
+    // Sounds the same ("derek ray" -> "derrick rae"), as long as the spelling
+    // is still reasonably close, so short unrelated words don't slip through.
+    const sound = phonetic(text);
+    const compact = keys[0].replace(/ /g, "");
+    if (!sound || compact.length < 3) return null;
+    bestDist = Infinity;
+    for (const [key, spelling, pos] of this.sounds) {
+      if (key !== sound) continue;
+      const allowed = Math.floor(0.45 * Math.max(compact.length, spelling.length));
+      const d = editDistance(compact, spelling, allowed);
+      if (d <= allowed && (d < bestDist || (d === bestDist && pos < best))) [best, bestDist] = [pos, d];
     }
     return best;
   }
@@ -257,12 +291,7 @@ export class Game {
     this.store = store;
     this.questions = new Map(themes.flatMap((t) => t.questions.map((q) => [q.id, q])));
     this.stats = store.get("stats", {}); // qid -> {answer name: player count}
-    this.custom = store.get("custom", {}); // qid -> [answers players voted valid]
     this.board = store.get("board", []);
-    for (const [qid, names] of Object.entries(this.custom)) {
-      const q = this.questions.get(qid);
-      if (q) names.forEach((name) => q.add([name], 1));
-    }
   }
 
   static async load(baseUrl = "") {
@@ -338,21 +367,6 @@ export class Game {
     };
   }
 
-  /** Players agreed a rejected answer is valid: add it to the board, then score it. */
-  accept(qid, text) {
-    const q = this.question(qid);
-    text = String(text || "").trim().slice(0, 80);
-    if (!baseNorm(text)) throw new Error("Empty answer");
-    let pos = q.match(text);
-    if (pos === null) {
-      const name = text[0].toUpperCase() + text.slice(1);
-      pos = q.add([name], 1);
-      (this.custom[qid] ||= []).push(name);
-      this.store.set("custom", this.custom);
-    }
-    return this.record(q, pos, text);
-  }
-
   leaderboard(n = 10) {
     return [...this.board].sort((a, b) => b.avg - a.avg || b.score - a.score).slice(0, n);
   }
@@ -367,8 +381,8 @@ export class Game {
     return this.leaderboard();
   }
 
-  /** Forget everything players taught this browser: learned counts, accepted answers, scores. */
+  /** Forget everything players taught this browser: learned counts and scores. */
   reset() {
-    ["stats", "custom", "board"].forEach((k) => this.store.remove(k));
+    ["stats", "board"].forEach((k) => this.store.remove(k));
   }
 }

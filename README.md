@@ -39,10 +39,9 @@ A rarer answer lands higher inside its bracket's range. An answer that isn't on 
 
 - **Starting counts:** each question starts with survey-style seed counts, so scoring makes sense from the first game.
 - **Learning:** every valid answer adds to those counts. A rare answer that keeps winning slowly becomes common.
-- **Where it's stored:** the learned counts, accepted answers and leaderboard live in the browser's `localStorage`. Each device learns separately, and *Reset* on the start screen clears it.
-- **Accept anyway:** if a real answer isn't on the list, players can click **It's valid, accept it**. That adds the answer to the board on that device and scores it (it'll be ultra rare).
+- **Where it's stored:** the learned counts and leaderboard live in the browser's `localStorage`. Each device learns separately, and *Reset* on the start screen clears it.
 
-Matching ignores capitals, plurals, accents, punctuation and small typos. It also accepts aliases ("ping pong", "NY", "Curie") and distinctive parts of long titles ("prisoner of azkaban").
+Matching is forgiving. It ignores capitals, plurals, accents and punctuation, and it fixes typos ("libray" → Library) and sound-alike spellings ("derek ray" → Derrick Rae). It also accepts aliases ("ping pong", "NY", "Curie") and distinctive parts of long titles ("prisoner of azkaban"). When an answer is corrected, the results show what you typed.
 
 ## Adding or editing questions
 
