@@ -17,7 +17,7 @@ export function legendHTML() {
     <div class="legend-item">
       <span class="dot" style="background:${color(b.key)}"></span>
       <div><div class="name">${b.name}</div><div class="range">${bracketRange(b)}</div></div>
-      <div class="pts" style="color:${color(b.key)}">${b.minPts}–${b.maxPts}</div>
+      <div class="pts" style="color:${color(b.key)}">${b.points} pts</div>
     </div>`).join("")}
   </div>`;
 }

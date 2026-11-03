@@ -33,13 +33,13 @@ Rarity is the share of all answers ever given to a question that match yours.
 
 | Bracket | Share of answers | Points |
 |---|---|---|
-| Ultra Rare | under 1% | 86–100 |
-| Rare | 1–3% | 66–85 |
-| Uncommon | 3–7% | 46–65 |
-| Common | 7–15% | 26–45 |
-| Very Common | 15%+ | 10–25 |
+| Ultra Rare | under 1% | 100 |
+| Rare | 1–3% | 60 |
+| Uncommon | 3–7% | 40 |
+| Common | 7–15% | 20 |
+| Very Common | 15%+ | 10 |
 
-A rarer answer lands higher inside its bracket's range. An answer that isn't on the board scores 0.
+Every answer in a bracket scores the same. An answer that isn't on the board scores 0.
 
 - **Starting counts:** each question starts with survey-style seed counts, so scoring makes sense from the first game.
 - **Learning:** every valid answer adds to those counts. A rare answer that keeps winning slowly becomes common.

@@ -116,7 +116,7 @@ function renderSetup() {
       <div>
         <h3>Scoring brackets</h3>
         ${legendHTML()}
-        <p class="hint">Within each bracket, the rarer your answer, the closer you get to the top of the range.</p>
+        <p class="hint">Rarity is the share of everyone's past answers to that question that match yours.</p>
         <h3 style="margin-top:24px">Themes</h3>
         <p class="hint" style="margin-top:0">${game.themes.map((t) => `${esc(t.name)} (${t.questions.length})`).join(" · ")}</p>
       </div>

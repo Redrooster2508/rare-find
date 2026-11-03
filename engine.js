@@ -4,16 +4,15 @@
 export const QUESTIONS_PER_ROUND = 7;
 
 // Five rarity brackets, rarest first. Rarity = share of all recorded answers to
-// that question that match yours. Each bracket maps to a range of points, and
-// within a bracket a rarer answer lands higher in the range.
+// that question that match yours. Each bracket is worth a fixed number of points.
 export const BRACKETS = [
-  { key: "ultra", name: "Ultra Rare", minPct: 0, maxPct: 1, minPts: 86, maxPts: 100 },
-  { key: "rare", name: "Rare", minPct: 1, maxPct: 3, minPts: 66, maxPts: 85 },
-  { key: "uncommon", name: "Uncommon", minPct: 3, maxPct: 7, minPts: 46, maxPts: 65 },
-  { key: "common", name: "Common", minPct: 7, maxPct: 15, minPts: 26, maxPts: 45 },
-  { key: "very_common", name: "Very Common", minPct: 15, maxPct: 100, minPts: 10, maxPts: 25 },
+  { key: "ultra", name: "Ultra Rare", minPct: 0, maxPct: 1, points: 100 },
+  { key: "rare", name: "Rare", minPct: 1, maxPct: 3, points: 60 },
+  { key: "uncommon", name: "Uncommon", minPct: 3, maxPct: 7, points: 40 },
+  { key: "common", name: "Common", minPct: 7, maxPct: 15, points: 20 },
+  { key: "very_common", name: "Very Common", minPct: 15, maxPct: 100, points: 10 },
 ];
-// Anything at or above this share gets the bracket's minimum points.
+// The rarity meter treats anything at or above this share as fully common.
 const VERY_COMMON_SCALE_CAP = 40;
 
 // Answers without an explicit "*count" get a survey-like seed from their rank:
@@ -240,7 +239,7 @@ export function score(pct) {
     if (pct < b.maxPct || b === BRACKETS[BRACKETS.length - 1]) {
       const hi = Math.min(b.maxPct, VERY_COMMON_SCALE_CAP);
       const t = Math.max(0, Math.min(1, (hi - pct) / (hi - b.minPct)));
-      return { bracket: b, points: Math.round(b.minPts + t * (b.maxPts - b.minPts)), position: t };
+      return { bracket: b, points: b.points, position: t };
     }
   }
 }
