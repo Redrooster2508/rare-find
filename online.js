@@ -6,7 +6,21 @@ import {
   esc, standingsHTML, resultHTML, topListHTML, animateResults, runTimer, trackBest, leaderboardHTML,
 } from "./ui.js";
 
-const PEERJS_URL = "https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js";
+// Bundled with the site (not a CDN) so networks that block CDNs can still play.
+const PEERJS_URL = "vendor/peerjs/peerjs.min.js";
+// Servers that help two browsers find a direct route to each other. Several
+// providers, so one being blocked (some VPNs, some countries) isn't fatal.
+const PEER_OPTIONS = {
+  debug: 0,
+  config: {
+    iceServers: [
+      { urls: "stun:stun.l.google.com:19302" },
+      { urls: "stun:stun.cloudflare.com:3478" },
+      { urls: "stun:stun.miwifi.com:3478" },
+      { urls: "stun:global.stun.twilio.com:3478" },
+    ],
+  },
+};
 const ID_PREFIX = "rarefind-room-";
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no 0/O or 1/I
 const MAX_PLAYERS = 12;
@@ -401,7 +415,7 @@ export async function hostRoom({ game, name, settings, app, hud, onExit }) {
     const code = newCode();
     try {
       room.peer = await new Promise((resolve, reject2) => {
-        const peer = new Peer(ID_PREFIX + code, { debug: 0 });
+        const peer = new Peer(ID_PREFIX + code, PEER_OPTIONS);
         peer.on("open", () => resolve(peer));
         peer.on("error", (err) => { peer.destroy(); reject2(err); });
       });
@@ -445,7 +459,7 @@ export async function joinRoom({ code, name, app, hud, onExit }) {
 
   let Peer;
   try { Peer = await loadPeer(); } catch (err) { return screen.message("Couldn't connect", esc(err.message)); }
-  peer = new Peer({ debug: 0 });
+  peer = new Peer(PEER_OPTIONS);
   const giveUp = setTimeout(() => {
     if (!me) { closedOnPurpose = true; peer.destroy(); screen.message("Couldn't reach that room", "Check the code, and make sure the host still has the room open."); }
   }, 15000);

@@ -26,6 +26,7 @@ export function baseNorm(text) {
   let s = String(text).toLowerCase().normalize("NFKD").replace(/\p{M}/gu, "");
   s = s.replace(/\+\+/g, " plus plus ").replace(/#/g, " sharp ").replace(/&/g, " and ");
   s = s.replace(/[^a-z0-9]+/g, " ").trim();
+  s = s.replace(/\b(vol|pt)\b/g, (w) => (w === "vol" ? "volume" : "part"));
   return s.replace(/^(a|an|the)\s+/, "");
 }
 
@@ -37,8 +38,11 @@ function singularWord(w) {
   return w;
 }
 
+const SHORT_GUESS = 5; // letters
+const WELL_KNOWN = 40; // answers, counted from the most popular
+
 /** All lookup keys for a piece of text, most literal first. */
-function variants(text) {
+export function variants(text) {
   const raw = baseNorm(text);
   const sing = raw.split(" ").map(singularWord).join(" ");
   const out = [];
@@ -110,15 +114,20 @@ export class Question {
 
   indexEntry(pos) {
     const names = [...this.entries[pos]];
-    for (const n of [...names]) {
-      // "Star Wars: A New Hope" also answers to "A New Hope"
-      if (n.includes(":")) names.push(...n.split(":").filter((p) => p.trim()));
-    }
-    if (this.surnames && names[0].includes(" ")) names.push(names[0].split(" ").pop());
+    const derived = [];
     for (const n of names) {
+      // "Star Wars: A New Hope" also answers to "A New Hope"
+      if (n.includes(":")) derived.push(...n.split(":").filter((p) => p.trim()));
+    }
+    if (this.surnames && names[0].includes(" ")) derived.push(names[0].split(" ").pop());
+    const DERIVED_TIER = 4; // below every form of a name or alias the file spells out
+    for (const [n, base] of [...names.map((n) => [n, 0]), ...derived.map((n) => [n, DERIVED_TIER])]) {
       // An exact spelling beats another answer's plural or space-squashed form
-      // ("Glass" vs "Glasses"); otherwise the earlier, more popular answer wins.
-      variants(n).forEach((key, tier) => {
+      // ("Glass" vs "Glasses"), and any listed name beats a colon part or surname
+      // ("Resident Evil" vs "Resident Evil: Infinite Darkness"); otherwise the
+      // earlier, more popular answer wins.
+      variants(n).forEach((key, i) => {
+        const tier = base + i;
         const held = this.index.get(key);
         if (!held || tier < held.tier) this.index.set(key, { pos, tier });
       });
@@ -152,14 +161,17 @@ export class Question {
       if (best !== null) return best;
     }
     // Forgive typos: more slack the longer the word ("libray" -> "library").
+    // A short guess is only corrected towards the well-known answers, so a
+    // stray word ("dog", "ball") isn't read as an obscure "Doug" or "Bill".
     probe = keys[keys.length - 1];
+    const reach = keys[0].replace(/ /g, "").length <= SHORT_GUESS ? WELL_KNOWN : Infinity;
     const limit = probe.length >= 12 ? 3 : probe.length >= 7 ? 2 : probe.length >= 4 ? 1 : 0;
     let best = null;
     let bestDist = limit + 1;
     if (limit) {
       for (const [key, { pos }] of this.index) {
         // Short words must keep their first letter, so "bear" isn't read as "pear".
-        if (key.includes(" ") || (probe.length < 7 && key[0] !== probe[0])) continue;
+        if (pos >= reach || key.includes(" ") || (probe.length < 7 && key[0] !== probe[0])) continue;
         const d = editDistance(probe, key, limit);
         if (d < bestDist) [best, bestDist] = [pos, d];
       }
@@ -172,7 +184,7 @@ export class Question {
     if (!sound || compact.length < 3) return null;
     bestDist = Infinity;
     for (const [key, spelling, pos] of this.sounds) {
-      if (key !== sound) continue;
+      if (key !== sound || pos >= reach) continue;
       const allowed = Math.floor(0.45 * Math.max(compact.length, spelling.length));
       const d = editDistance(compact, spelling, allowed);
       if (d <= allowed && (d < bestDist || (d === bestDist && pos < best))) [best, bestDist] = [pos, d];
