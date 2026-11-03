@@ -186,3 +186,11 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 button.link { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font-size: .85rem; }
 button.link:hover { color: var(--text); }
 code { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+
+/* Online rooms */
+.room-code { font-size: clamp(2.6rem, 9vw, 4rem); font-weight: 900; letter-spacing: .25em; color: var(--accent); margin: 4px 0 8px; padding-left: .25em; font-variant-numeric: tabular-nums; }
+.invite { display: flex; gap: 8px; max-width: 520px; margin: 0 auto; }
+.invite input { font-size: .85rem; color: var(--muted); }
+.join-box { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-top: 14px; }
+.join-box .answer-form input { font-size: 1.1rem; letter-spacing: .15em; }
+@media (max-width: 520px) { .answer-form, .invite { flex-direction: column; } }

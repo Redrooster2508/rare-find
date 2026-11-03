@@ -1,4 +1,8 @@
-import { Game, BRACKETS, QUESTIONS_PER_ROUND } from "./engine.js";
+import { Game, QUESTIONS_PER_ROUND } from "./engine.js";
+import {
+  esc, legendHTML, leaderboardHTML, standingsHTML, resultHTML, topListHTML, animateResults, runTimer, trackBest,
+} from "./ui.js";
+import { hostRoom, joinRoom, normalizeCode } from "./online.js";
 
 const app = document.getElementById("app");
 const hud = document.getElementById("hud");
@@ -12,14 +16,10 @@ const state = {
   q: 0, // question index within the round
   turn: 0,
   results: [], // this question: {player, ...result}
-  timerId: null,
-  inGame: false,
+  stopTimer: () => {},
+  inGame: false, // a same-device game, or an online room, is running
 };
 
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
-  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-const color = (key) => `var(--${key})`;
 const currentQuestion = () => state.rounds[state.r].questions[state.q];
 const totalQuestions = () => state.rounds.reduce((n, r) => n + r.questions.length, 0);
 
@@ -31,56 +31,8 @@ function saveSetup(setup) {
 }
 
 function stopTimer() {
-  clearInterval(state.timerId);
-  state.timerId = null;
-}
-
-// ---------------------------------------------------------------- shared bits
-
-function bracketRange(b) {
-  if (b.minPct === 0) return `under ${b.maxPct}% of answers`;
-  if (b.maxPct >= 100) return `${b.minPct}%+ of answers`;
-  return `${b.minPct}–${b.maxPct}% of answers`;
-}
-
-function legendHTML() {
-  return `<div class="legend">${BRACKETS.map((b) => `
-    <div class="legend-item">
-      <span class="dot" style="background:${color(b.key)}"></span>
-      <div><div class="name">${b.name}</div><div class="range">${bracketRange(b)}</div></div>
-      <div class="pts" style="color:${color(b.key)}">${b.minPts}–${b.maxPts}</div>
-    </div>`).join("")}
-  </div>`;
-}
-
-function leaderboardHTML(rows) {
-  if (!rows.length) return "";
-  return `<section class="card">
-    <h3>Hall of fame <span class="muted" style="text-transform:none;letter-spacing:0">— ranked by average points per question</span></h3>
-    <table>
-      <thead><tr><th>#</th><th>Player</th><th class="num">Avg</th><th class="num">Score</th><th class="num">Qs</th><th class="num">Date</th></tr></thead>
-      <tbody>${rows.map((r, i) => `
-        <tr><td>${i + 1}</td><td>${esc(r.name)}</td><td class="num"><b>${r.avg}</b></td>
-        <td class="num">${r.score}</td><td class="num">${r.rounds}</td><td class="num muted">${esc(r.date)}</td></tr>`).join("")}
-      </tbody>
-    </table>
-  </section>`;
-}
-
-function standingsHTML(players) {
-  const medals = ["🥇", "🥈", "🥉"];
-  return `<div class="podium">${[...players].sort((a, b) => b.score - a.score).map((p, i) => `
-    <div class="standing ${i === 0 ? "first" : ""}">
-      <div class="place">${medals[i] || i + 1}</div>
-      <div>
-        <div class="nm">${esc(p.name)}</div>
-        <div class="sub">${p.best
-          ? `Best find: <b style="color:${color(p.best.bracket.key)}">${esc(p.best.answer)}</b> (${p.best.bracket.name}, ${p.best.points} pts)`
-          : "No valid answers yet"}</div>
-      </div>
-      <div class="sc">${p.score}</div>
-    </div>`).join("")}
-  </div>`;
+  state.stopTimer();
+  state.stopTimer = () => {};
 }
 
 function renderHud() {
@@ -94,16 +46,6 @@ function renderHud() {
     ).join("");
 }
 
-function countUp(el, to, ms = 900) {
-  const start = performance.now();
-  const step = (now) => {
-    const t = Math.min(1, (now - start) / ms);
-    el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
-    if (t < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
 // ---------------------------------------------------------------- setup
 
 function renderSetup() {
@@ -112,9 +54,11 @@ function renderSetup() {
   renderHud();
   const { game } = state;
   const saved = loadSetup();
+  const roomFromLink = normalizeCode(new URLSearchParams(location.search).get("room"));
   const names = saved.names?.length ? saved.names : ["Player 1"];
-  const mode = saved.mode === "theme" ? "theme" : "mixed";
   const chosen = new Set(saved.themes?.length ? saved.themes : game.themes.map((t) => t.id));
+  let where = roomFromLink ? "online" : saved.where === "online" ? "online" : "local";
+  let mode = saved.mode === "theme" ? "theme" : "mixed";
 
   app.innerHTML = `
   <section class="card">
@@ -123,14 +67,33 @@ function renderSetup() {
       before, the more points you score. Answers that don't fit the question score 0.</p>
     <div class="grid2">
       <div>
-        <h3>Players</h3>
-        <div id="players"></div>
-        <button class="ghost" id="addPlayer" type="button">+ Add player</button>
+        <h3>How are you playing?</h3>
+        <div class="seg" role="radiogroup">
+          <button type="button" data-where="local">Same device</button>
+          <button type="button" data-where="online">Online room</button>
+        </div>
+
+        <div id="localBox" style="margin-top:14px">
+          <div id="players"></div>
+          <button class="ghost" id="addPlayer" type="button">+ Add player</button>
+        </div>
+
+        <div id="onlineBox" style="margin-top:14px">
+          <label>Your name <input type="text" id="myName" maxlength="24" value="${esc(saved.myName || names[0])}"></label>
+          <div class="join-box">
+            <h3 style="margin:0 0 8px">Join a friend's room</h3>
+            <div class="answer-form">
+              <input type="text" id="code" maxlength="8" placeholder="Room code" value="${esc(roomFromLink)}" aria-label="Room code" style="text-transform:uppercase">
+              <button class="primary" id="join" type="button">Join</button>
+            </div>
+          </div>
+          <p class="hint">Or set up the rounds below and create a room for others to join.</p>
+        </div>
 
         <h3 style="margin-top:24px">Rounds</h3>
         <div class="seg" role="radiogroup">
-          <button type="button" data-mode="mixed" class="${mode === "mixed" ? "on" : ""}">Mixed rounds</button>
-          <button type="button" data-mode="theme" class="${mode === "theme" ? "on" : ""}">Theme rounds</button>
+          <button type="button" data-mode="mixed">Mixed rounds</button>
+          <button type="button" data-mode="theme">Theme rounds</button>
         </div>
         <p class="hint" id="modeHint"></p>
         <div id="mixedOpts" class="row">
@@ -148,7 +111,7 @@ function renderSetup() {
               .map(([v, l]) => `<option value="${v}" ${v === (saved.timer || 0) ? "selected" : ""}>${l}</option>`).join("")}</select>
           </label>
         </div>
-        <button class="primary big" id="start" type="button">Start game</button>
+        <button class="primary big" id="start" type="button"></button>
       </div>
       <div>
         <h3>Scoring brackets</h3>
@@ -162,7 +125,7 @@ function renderSetup() {
   ${leaderboardHTML(game.leaderboard())}
   <p class="center"><button class="link" id="reset" type="button">Reset learned answers and scores on this device</button></p>`;
 
-  // players
+  // players (same device)
   const list = document.getElementById("players");
   const drawPlayers = (arr) => {
     list.innerHTML = arr.map((n, i) => `
@@ -188,32 +151,57 @@ function renderSetup() {
     list.querySelector(".player-row:last-child input").select();
   };
 
-  // round style
-  let curMode = mode;
-  const applyMode = () => {
-    app.querySelectorAll("[data-mode]").forEach((b) => b.classList.toggle("on", b.dataset.mode === curMode));
-    document.getElementById("mixedOpts").hidden = curMode !== "mixed";
-    document.getElementById("themeOpts").hidden = curMode !== "theme";
-    document.getElementById("modeHint").textContent = curMode === "mixed"
+  // toggles
+  const apply = () => {
+    app.querySelectorAll("[data-where]").forEach((b) => b.classList.toggle("on", b.dataset.where === where));
+    app.querySelectorAll("[data-mode]").forEach((b) => b.classList.toggle("on", b.dataset.mode === mode));
+    document.getElementById("localBox").hidden = where !== "local";
+    document.getElementById("onlineBox").hidden = where !== "online";
+    document.getElementById("mixedOpts").hidden = mode !== "mixed";
+    document.getElementById("themeOpts").hidden = mode !== "theme";
+    document.getElementById("modeHint").textContent = mode === "mixed"
       ? `Each round is ${QUESTIONS_PER_ROUND} questions, one from each theme.`
       : `Each theme you pick is a round of ${QUESTIONS_PER_ROUND} questions from that theme.`;
+    document.getElementById("start").textContent = where === "online" ? "Create a room" : "Start game";
   };
-  app.querySelectorAll("[data-mode]").forEach((b) => { b.onclick = () => { curMode = b.dataset.mode; applyMode(); }; });
+  app.querySelectorAll("[data-where]").forEach((b) => { b.onclick = () => { where = b.dataset.where; apply(); }; });
+  app.querySelectorAll("[data-mode]").forEach((b) => { b.onclick = () => { mode = b.dataset.mode; apply(); }; });
   app.querySelectorAll("[data-theme]").forEach((b) => { b.onclick = () => b.classList.toggle("on"); });
-  applyMode();
+  apply();
 
-  document.getElementById("start").onclick = () => {
-    const playerNames = currentNames().map((n, i) => n.trim() || `Player ${i + 1}`);
+  const collect = () => {
     const themes = [...app.querySelectorAll("[data-theme].on")].map((b) => b.dataset.theme);
-    if (curMode === "theme" && !themes.length) { alert("Pick at least one theme."); return; }
     const setup = {
-      names: playerNames, mode: curMode, themes,
+      where, mode, themes,
+      themeNames: themes.map((id) => game.themes.find((t) => t.id === id).name),
+      names: currentNames().map((n, i) => n.trim() || `Player ${i + 1}`),
+      myName: document.getElementById("myName").value.trim() || "Player",
       rounds: Number(document.getElementById("rounds").value),
       timer: Number(document.getElementById("timer").value),
     };
     saveSetup(setup);
-    startGame(setup);
+    return setup;
   };
+  const leaveRoom = () => {
+    history.replaceState(null, "", location.pathname);
+    renderSetup();
+  };
+
+  document.getElementById("start").onclick = () => {
+    const setup = collect();
+    if (setup.mode === "theme" && !setup.themes.length) { alert("Pick at least one theme."); return; }
+    if (setup.where === "local") return startGame(setup);
+    state.inGame = true;
+    hostRoom({ game, name: setup.myName, settings: setup, app, hud, onExit: () => { state.inGame = false; leaveRoom(); } });
+  };
+  document.getElementById("join").onclick = () => {
+    const setup = collect();
+    const code = normalizeCode(document.getElementById("code").value);
+    if (code.length < 4) { alert("Enter the room code the host gave you."); return; }
+    state.inGame = true;
+    joinRoom({ code, name: setup.myName, app, hud, onExit: () => { state.inGame = false; leaveRoom(); } });
+  };
+  document.getElementById("code").addEventListener("keydown", (e) => { if (e.key === "Enter") document.getElementById("join").click(); });
 
   document.getElementById("reset").onclick = () => {
     if (!confirm("Forget every answer this device has learned, and the hall of fame?")) return;
@@ -222,7 +210,7 @@ function renderSetup() {
   };
 }
 
-// ---------------------------------------------------------------- game flow
+// ---------------------------------------------------------------- same-device game
 
 function startGame(setup) {
   state.rounds = state.game.newGame(setup.mode, setup.rounds, setup.themes);
@@ -238,12 +226,11 @@ function beginRound() {
   state.results = [];
   renderHud();
   const round = state.rounds[state.r];
-  const themes = round.questions.map((q) => q.category);
   app.innerHTML = `
     <section class="card handoff">
       <div class="muted">Round ${state.r + 1} of ${state.rounds.length}</div>
       <div class="big-name">${esc(round.title)}</div>
-      <div class="chips center-chips">${themes.map((t) => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+      <div class="chips center-chips">${round.questions.map((q) => `<span class="chip">${esc(q.category)}</span>`).join("")}</div>
       <p class="muted">${round.questions.length} questions${state.timer ? ` · ${state.timer}s each` : ""}</p>
       <button class="primary" id="go" type="button">Start round ${state.r + 1}</button>
     </section>`;
@@ -290,7 +277,7 @@ function showQuestion() {
       <div class="prompt">${esc(q.prompt)}</div>
       <form class="answer-form" id="form" autocomplete="off">
         <input type="text" id="answer" maxlength="80" placeholder="Type something nobody else would say…" aria-label="Your answer">
-        <button class="primary" type="submit" id="submit">Submit</button>
+        <button class="primary" type="submit">Submit</button>
       </form>
       <p class="hint">Go obscure, but it still has to be a real, valid answer.</p>
     </section>`;
@@ -300,25 +287,9 @@ function showQuestion() {
     e.preventDefault();
     submitAnswer(input.value);
   };
-  if (state.timer) startTimer(() => submitAnswer(input.value));
-}
-
-function startTimer(onExpire) {
-  stopTimer();
-  const ends = Date.now() + state.timer * 1000;
-  const wrap = document.getElementById("timer");
-  const bar = wrap.firstElementChild;
-  state.timerId = setInterval(() => {
-    const left = Math.max(0, ends - Date.now());
-    bar.style.width = `${(100 * left) / (state.timer * 1000)}%`;
-    wrap.classList.toggle("low", left < 5000);
-    if (left === 0) { stopTimer(); onExpire(); }
-  }, 100);
-}
-
-function trackBest(p, res) {
-  if (res.accepted && (!p.best || res.points > p.best.points)) {
-    p.best = { answer: res.answer, points: res.points, bracket: res.bracket };
+  if (state.timer) {
+    const total = state.timer * 1000;
+    state.stopTimer = runTimer(document.getElementById("timer"), Date.now() + total, total, () => submitAnswer(input.value));
   }
 }
 
@@ -334,86 +305,28 @@ function submitAnswer(text) {
   else showReveal();
 }
 
-function meterHTML(r) {
-  const order = [...BRACKETS].reverse(); // common → rare, left to right
-  const idx = order.findIndex((b) => b.key === r.bracket.key);
-  const pos = ((idx + r.bracketPosition) / order.length) * 100;
-  return `
-    <div class="meter">
-      ${order.map((b, i) => `<span class="${i === idx ? "on" : ""}" style="background:${color(b.key)}"></span>`).join("")}
-      <div class="marker" data-left="${pos}" style="left:0%"></div>
-    </div>
-    <div class="meter-labels"><span>More common</span><span>Rarer</span></div>`;
-}
-
-function resultHTML(r, i, animate) {
-  const p = state.players[r.player];
-  const multi = state.players.length > 1;
-  const delay = animate ? `animation-delay:${i * 120}ms` : "animation:none";
-  if (!r.accepted) {
-    return `<div class="result" style="${delay}">
-      <div class="result-head">
-        <div>
-          ${multi ? `<div class="who">${esc(p.name)}</div>` : ""}
-          <div class="ans">${r.input ? `“${esc(r.input)}”` : "—"}</div>
-          <span class="badge none">${esc(r.reason)}</span>
-          <div class="stat">${r.input ? "That answer isn't on our list for this question." : "Time ran out before an answer was submitted."}</div>
-        </div>
-        <div class="points">0<small>points</small></div>
-      </div>
-    </div>`;
-  }
-  const typedDiffers = r.input.trim().toLowerCase() !== r.answer.toLowerCase();
-  const people = r.count === 1 ? "1 person" : `${r.count} people`;
-  return `<div class="result ${r.bracket.key === "ultra" ? "ultra-glow" : ""}" style="--c:${color(r.bracket.key)};${delay}">
-    <div class="result-head">
-      <div>
-        ${multi ? `<div class="who">${esc(p.name)}</div>` : ""}
-        <div class="ans">${esc(r.answer)}</div>
-        ${typedDiffers ? `<div class="typed">you typed “${esc(r.input)}”</div>` : ""}
-        <span class="badge">${esc(r.bracket.name)}</span>
-        <div class="stat">${r.pct}% of answers: ${people} out of ${r.total} said this before you.</div>
-      </div>
-      <div class="points"><span data-count="${r.points}">${animate ? 0 : r.points}</span><small>points</small></div>
-    </div>
-    ${meterHTML(r)}
-  </div>`;
-}
-
-function showReveal(animate = true) {
+function showReveal() {
   renderHud();
   const q = currentQuestion();
   const lastInRound = state.q === state.rounds[state.r].questions.length - 1;
   const lastRound = state.r === state.rounds.length - 1;
   const nextLabel = !lastInRound ? "Next question →" : lastRound ? "See final results →" : "Round results →";
-  const top = state.results[state.results.length - 1].top;
+  const multi = state.players.length > 1;
   const mine = new Set(state.results.filter((r) => r.accepted).map((r) => r.answer));
-  const maxPct = Math.max(...top.map((t) => t.pct));
   app.innerHTML = `
     <section class="card">
       <div class="q-meta"><span>${esc(q.category)}</span><span>Results</span></div>
       <div class="prompt" style="margin-bottom:18px">${esc(q.prompt)}</div>
-      <div class="results">${state.results.map((r, i) => resultHTML(r, i, animate)).join("")}</div>
+      <div class="results">${state.results.map((r, i) =>
+        resultHTML(r, i, multi ? state.players[r.player].name : "")).join("")}</div>
     </section>
     <section class="card">
-      <h3>Most common answers</h3>
-      <ul class="top-list">${top.map((t) => `
-        <li class="${mine.has(t.answer) ? "mine" : ""}">
-          <div class="bar"><i style="width:${(100 * t.pct) / maxPct}%"></i><span>${esc(t.answer)}</span></div>
-          <div class="pct">${t.pct}%</div>
-        </li>`).join("")}
-      </ul>
+      ${topListHTML(state.results[state.results.length - 1].top, mine)}
       <div class="actions">
         <button class="primary" id="next" type="button">${nextLabel}</button>
       </div>
     </section>`;
-
-  const settle = () => {
-    app.querySelectorAll(".marker").forEach((el) => { el.style.left = `${el.dataset.left}%`; });
-    if (animate) app.querySelectorAll("[data-count]").forEach((el) => countUp(el, Number(el.dataset.count)));
-  };
-  if (animate) requestAnimationFrame(settle); else settle();
-
+  animateResults(app);
   const next = document.getElementById("next");
   next.focus();
   next.onclick = () => {
@@ -464,7 +377,7 @@ function showFinal() {
 
 document.getElementById("home").onclick = () => {
   if (state.inGame && !confirm("Leave the current game?")) return;
-  if (state.game) renderSetup();
+  if (state.game) location.href = location.pathname; // also drops any online connection
 };
 
 Game.load()

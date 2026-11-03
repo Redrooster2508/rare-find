@@ -19,7 +19,11 @@ Opening `index.html` straight from disk won't work, because the browser blocks l
 
 The themes are Television, Sports, Films, Food, Fruits, Tech and Science, with 100 questions each. A question never repeats within a game.
 
-- **Players:** 1–8 people on one device. In multiplayer, answers stay hidden until everyone has locked in.
+- **Same device:** 1–8 people pass one phone or laptop around. Answers stay hidden until everyone has locked in.
+- **Online room:** one person picks *Online room → Create a room* and shares the 5-character code (or the invite link). Everyone else picks *Online room*, types the code and joins on their own device. All players answer at the same time, the host moves the game along, and up to 12 players can join.
+  - Rooms use [PeerJS](https://peerjs.com/), so browsers connect directly to each other. PeerJS's free public server only introduces them, and no account or API key is needed.
+  - The host's browser runs the game, so the room closes if the host leaves.
+  - Very strict networks (some school or office Wi-Fi) can block these direct connections.
 - **Timer:** optional, 20, 30 or 45 seconds per answer.
 - **Hall of fame:** ranked by average points per question.
 
