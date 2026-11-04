@@ -8,6 +8,8 @@
 //            · { tvCharacters, year } — ranked by TMDB votes or episode count
 //   limit    how many items to take (default 150)
 //   exclude  regex of labels to skip
+//   trim     regex removed from labels (the untrimmed label is kept as a spelling)
+//   noNumbers skip spellings with catalogue numbers, like "HD 48915"
 //   surnames add [surnames] when this creates a new question about people
 
 const film = "?item wdt:P31 wd:Q11424 .";
@@ -182,6 +184,13 @@ export default [
 
   // ------------------------------------------------------------ Fruits
   { file: FRUITS, prompt: "Name a fruit.", wikidata: kindOf("Q3314483"), limit: 200, exclude: " tree$|^(dried|tropical|subtropical|citrus|stone|climacteric|pickled|windfall|canned|exotic|soft|forest|accessory|multiple|aggregate|dry|wine grape|fruit) (fruits?|variety)$|^fruit of |^prunus |^(berry|berries|nuts?|citrus|tuna|chestnut|vanilla bean|cubeb|cooking apple|fried plantain|gaufre aux fruits)$| from |hybrid|eight rare" },
+  // Culinary berries: plants whose English common name ends in "berry" (botanically, bananas are berries).
+  {
+    file: FRUITS, prompt: "Name a berry.", commonNames: "^[a-z' -]*berr(y|ies)$",
+    ranked: `SELECT ?item ?links WHERE { ?item wdt:P1843 ?cn . FILTER(LANG(?cn) = "en" && REGEX(?cn, "^[a-z' -]*berr(y|ies)$", "i"))
+      ?item wikibase:sitelinks ?links } ORDER BY DESC(?links)`,
+    limit: 100,
+  },
   { file: FRUITS, prompt: "Name a citrus fruit.", wikidata: kindOf("Q2574750"), exclude: "^citrus " },
   { file: FRUITS, prompt: "Name an apple variety.", wikidata: isA("Q15731356"), limit: 150 },
   { file: FRUITS, prompt: "Name a mango variety.", wikidata: isA("Q27068180") },
@@ -208,6 +217,13 @@ export default [
   { file: SCIENCE, prompt: "Name a disease or illness.", wikidata: isA("Q12136"), limit: 200, exclude: "^(hysteria|inferiority complex|metastasis)$" },
   { file: SCIENCE, prompt: "Name a famous volcano.", wikidata: isA("Q8072") },
   { file: SCIENCE, prompt: "Name a galaxy.", wikidata: `?item wdt:P31/wdt:P279* wd:Q318 .`, limit: 300, exclude: "\\d{2}"  },
+  // Every star is in Wikidata (millions), so start from Wikipedia's list of named ones.
+  {
+    file: SCIENCE, prompt: "Name a star (other than the Sun).", limit: 120, exclude: "^sun\\b", trim: " (star )?system$", noNumbers: true,
+    wikidata: `SERVICE wikibase:mwapi { bd:serviceParam wikibase:endpoint "en.wikipedia.org"; wikibase:api "Generator";
+      mwapi:generator "categorymembers"; mwapi:gcmtitle "Category:Stars with proper names"; mwapi:gcmlimit "max";
+      mwapi:gcmnamespace "0" . ?item wikibase:apiOutputItem mwapi:item . }`,
+  },
   { file: SCIENCE, prompt: "Name a type of rock.", wikidata: kindOf("Q8063"), exclude: "^(meteorite|ore|regolith|chondrule|gangue|lithic flake|pozzolan|igneous rock|sedimentary rock|metamorphic rock)$" },
   { file: SCIENCE, prompt: "Name a famous scientist.", ...knownAs(["Q169470", "Q593644", "Q864503", "Q901", "Q11063", "Q2374149"], ["Q205375", "Q4964182", "Q170790"]), limit: 150 },
   { file: SCIENCE, prompt: "Name a famous mathematician.", ...knownAs("Q170790", ["Q169470", "Q4964182", "Q11063", "Q205375"]), limit: 120, exclude: "^(thomas edison|leo xiv|gregor mendel)$" },

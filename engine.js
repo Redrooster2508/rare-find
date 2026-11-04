@@ -38,8 +38,12 @@ function singularWord(w) {
   return w;
 }
 
-const SHORT_GUESS = 5; // letters
-const WELL_KNOWN = 40; // answers, counted from the most popular
+let commonWords = new Set();
+
+/** English words that are never corrected into an answer (one per line, from vendor/scowl). */
+export function setCommonWords(text) {
+  commonWords = new Set(text.split("\n").map((w) => w.trim()).filter(Boolean));
+}
 
 /** All lookup keys for a piece of text, most literal first. */
 export function variants(text) {
@@ -75,7 +79,7 @@ function editDistance(a, b, limit) {
  * Rough "sounds like" key for each word, so spellings that sound the same
  * collide: "derek ray" and "derrick rae" both become "drk r".
  */
-function phonetic(text) {
+export function phonetic(text) {
   return baseNorm(text).split(" ").map((word) => {
     let w = word.replace(/[^a-z]/g, "");
     if (!w) return "";
@@ -131,7 +135,7 @@ export class Question {
         const held = this.index.get(key);
         if (!held || tier < held.tier) this.index.set(key, { pos, tier });
       });
-      this.phrases.push([baseNorm(n), pos]);
+      this.phrases.push([baseNorm(n), pos, n === names[0]]);
       this.sounds.push([phonetic(n), baseNorm(n).replace(/ /g, ""), pos]);
     }
   }
@@ -139,7 +143,7 @@ export class Question {
   ensureIndex() {
     if (this.index) return;
     this.index = new Map(); // lookup key -> answer position
-    this.phrases = []; // [spaced key, position] for partial-title matching
+    this.phrases = []; // [spaced key, position, is main name] for partial-title matching
     this.sounds = []; // [phonetic key, compact spelling, position] for sound-alike matching
     this.entries.forEach((_, pos) => this.indexEntry(pos));
   }
@@ -151,27 +155,30 @@ export class Question {
     for (const key of keys) if (this.index.has(key)) return this.index.get(key).pos;
     // A distinctive chunk of a longer title ("fellowship of the ring").
     let probe = keys[0];
+    const realWord = !probe.includes(" ") && commonWords.has(probe);
     if (probe.includes(" ") || probe.length >= 4) {
       let best = null;
-      for (const [phrase, pos] of this.phrases) {
+      for (const [phrase, pos, main] of this.phrases) {
+        // A plain word inside a nickname ("money" in "G-Money") isn't a guess at that person.
+        if (realWord && !main) continue;
         if (` ${phrase} `.includes(` ${probe} `) && (probe.includes(" ") || probe.length * 2 >= phrase.length)) {
           if (best === null || pos < best) best = pos;
         }
       }
       if (best !== null) return best;
     }
+    // A real word that isn't on the list is a wrong answer, not a typo:
+    // "ball" isn't "Bulls" and "dog" isn't "Doug".
+    if (realWord) return null;
     // Forgive typos: more slack the longer the word ("libray" -> "library").
-    // A short guess is only corrected towards the well-known answers, so a
-    // stray word ("dog", "ball") isn't read as an obscure "Doug" or "Bill".
     probe = keys[keys.length - 1];
-    const reach = keys[0].replace(/ /g, "").length <= SHORT_GUESS ? WELL_KNOWN : Infinity;
     const limit = probe.length >= 12 ? 3 : probe.length >= 7 ? 2 : probe.length >= 4 ? 1 : 0;
     let best = null;
     let bestDist = limit + 1;
     if (limit) {
       for (const [key, { pos }] of this.index) {
         // Short words must keep their first letter, so "bear" isn't read as "pear".
-        if (pos >= reach || key.includes(" ") || (probe.length < 7 && key[0] !== probe[0])) continue;
+        if (key.includes(" ") || (probe.length < 7 && key[0] !== probe[0])) continue;
         const d = editDistance(probe, key, limit);
         if (d < bestDist) [best, bestDist] = [pos, d];
       }
@@ -184,7 +191,7 @@ export class Question {
     if (!sound || compact.length < 3) return null;
     bestDist = Infinity;
     for (const [key, spelling, pos] of this.sounds) {
-      if (key !== sound || pos >= reach) continue;
+      if (key !== sound) continue;
       const allowed = Math.floor(0.45 * Math.max(compact.length, spelling.length));
       const d = editDistance(compact, spelling, allowed);
       if (d <= allowed && (d < bestDist || (d === bestDist && pos < best))) [best, bestDist] = [pos, d];
@@ -307,7 +314,11 @@ export class Game {
 
   static async load(baseUrl = "") {
     const files = await (await fetch(`${baseUrl}questions/index.json`)).json();
-    const texts = await Promise.all(files.map(async (f) => (await fetch(`${baseUrl}questions/${f}`)).text()));
+    const [words, ...texts] = await Promise.all([
+      fetch(`${baseUrl}vendor/scowl/words.txt`).then((r) => (r.ok ? r.text() : "")),
+      ...files.map(async (f) => (await fetch(`${baseUrl}questions/${f}`)).text()),
+    ]);
+    setCommonWords(words);
     return new Game(files.map((f, i) => parseThemeFile(f, texts[i])));
   }
 

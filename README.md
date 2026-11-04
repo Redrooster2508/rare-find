@@ -45,7 +45,7 @@ Every answer in a bracket scores the same. An answer that isn't on the board sco
 - **Learning:** every valid answer adds to those counts. A rare answer that keeps winning slowly becomes common.
 - **Where it's stored:** the learned counts and leaderboard live in the browser's `localStorage`. Each device learns separately, and *Reset* on the start screen clears it.
 
-Matching is forgiving. It ignores capitals, plurals, accents and punctuation, and it fixes typos ("libray" → Library) and sound-alike spellings ("derek ray" → Derrick Rae). It also accepts aliases ("ping pong", "NY", "Curie") and distinctive parts of long titles ("prisoner of azkaban"). When an answer is corrected, the results show what you typed. Short guesses of 5 letters or fewer are only corrected towards a question's 40 best-known answers, so a stray word like "dog" isn't read as an obscure character called Doug.
+Matching is forgiving. It ignores capitals, plurals, accents and punctuation, and it fixes typos ("libray" → Library) and sound-alike spellings ("derek ray" → Derrick Rae). It also accepts aliases ("ping pong", "NY", "Curie") and distinctive parts of long titles ("prisoner of azkaban"). When an answer is corrected, the results show what you typed. A guess that is itself an ordinary English word is never corrected into a different answer, so "ball" isn't read as the Chicago Bulls and "dog" isn't Doug. Common homophones are listed as spellings instead ("time" counts as Thyme, "pair" as Pear). The word list is in `vendor/scowl/`.
 
 ## Adding or editing questions
 
@@ -84,4 +84,4 @@ node tools/check.mjs                       # then validate
 
 ## Credits
 
-Answer data from [Wikidata](https://www.wikidata.org) (CC0) and [TMDB](https://www.themoviedb.org). This product uses the TMDB API but is not endorsed or certified by TMDB. Online rooms use [PeerJS](https://peerjs.com) (MIT, bundled in `vendor/peerjs`).
+Answer data from [Wikidata](https://www.wikidata.org) (CC0) and [TMDB](https://www.themoviedb.org). This product uses the TMDB API but is not endorsed or certified by TMDB. Online rooms use [PeerJS](https://peerjs.com) (MIT, bundled in `vendor/peerjs`). The English word list comes from [SCOWL](http://wordlist.aspell.net/) by Kevin Atkinson (see `vendor/scowl/LICENSE`).

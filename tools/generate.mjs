@@ -50,7 +50,7 @@ async function cachedJson(url, init = {}) {
 }
 
 /** Items matching a SPARQL pattern on ?item, most Wikipedia language editions first. */
-async function fromWikidata({ wikidata, ranked, unlessJob, limit = 150, minLinks = 1 }) {
+async function fromWikidata({ wikidata, ranked, unlessJob, commonNames, limit = 150, minLinks = 1 }) {
   // Two small queries: one big query that also fetches labels times out on the
   // public endpoint, because the optimiser joins labels before the LIMIT.
   // `ranked` is a full query binding ?item and its own ?links score.
@@ -66,22 +66,26 @@ async function fromWikidata({ wikidata, ranked, unlessJob, limit = 150, minLinks
   const ids = [...links.keys()].map((u) => `wd:${u.split("/").pop()}`).join(" ");
   const named = await sparql(`
     SELECT ?item ?label ?taxon (GROUP_CONCAT(DISTINCT ?alt; separator="|") AS ?alts)
-           (GROUP_CONCAT(DISTINCT ?job; separator="|") AS ?jobs) WHERE {
+           (GROUP_CONCAT(DISTINCT ?job; separator="|") AS ?jobs)
+           (GROUP_CONCAT(DISTINCT ?cn; separator="|") AS ?cns) WHERE {
       VALUES ?item { ${ids} }
       ?item rdfs:label ?label . FILTER(LANG(?label) = "en")
       OPTIONAL { ?item wdt:P225 ?taxon }
       OPTIONAL { ?item skos:altLabel ?alt . FILTER(LANG(?alt) = "en") }
       ${unlessJob ? "OPTIONAL { ?item wdt:P106 ?job }" : ""}
+      ${commonNames ? `OPTIONAL { ?item wdt:P1843 ?cn . FILTER(LANG(?cn) = "en") }` : ""}
     } GROUP BY ?item ?label ?taxon`);
   const unless = new Set((unlessJob || []).map((q) => `http://www.wikidata.org/entity/${q}`));
   return named
     .filter((b) => !b.jobs?.value || !b.jobs.value.split("|").some((j) => unless.has(j)))
-    .map((b) => commonName({
-      label: b.label.value,
-      taxon: b.taxon?.value,
-      aliases: b.alts?.value ? b.alts.value.split("|") : [],
-      score: links.get(b.item.value),
-    }))
+    .map((b) => {
+      const aliases = b.alts?.value ? b.alts.value.split("|") : [];
+      const item = { label: b.label.value, taxon: b.taxon?.value, aliases, score: links.get(b.item.value) };
+      if (!commonNames) return commonName(item);
+      // Taxa are answered by their English common name, e.g. "Fragaria" -> "strawberry".
+      const names = (b.cns?.value ? b.cns.value.split("|") : []).filter((n) => new RegExp(commonNames, "i").test(n));
+      return names.length ? { label: names[0], aliases: names.slice(1), score: item.score } : null;
+    })
     .filter(Boolean)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
@@ -239,11 +243,17 @@ function mergeQuestion(fileText, prompt, items, spec) {
   let added = 0;
   let merged = 0;
   const exclude = spec.exclude ? new RegExp(spec.exclude, "i") : null;
+  const trim = spec.trim ? new RegExp(spec.trim, "i") : null;
   for (const item of items) {
-    const label = clean(item.label);
+    if (trim?.test(item.label)) item.aliases = [item.label, ...item.aliases];
+    const label = clean(trim ? item.label.replace(trim, "") : item.label);
     if (!label || exclude?.test(label)) continue;
     const aliases = item.aliases.map(clean)
       .filter((a) => a && a.length >= 3 && !exclude?.test(a) && baseNorm(a) !== baseNorm(label))
+      // Other scripts vanish when matching ("Λ Ori" would become "ori" and claim Rigel).
+      .filter((a) => !/[^\p{Script=Latin}\p{Script=Common}\p{M}]/u.test(a))
+      // Catalogue numbers ("HD 48915", "58 Orionis") when the source asks for it.
+      .filter((a) => !spec.noNumbers || !/\b\d+\b/.test(a) || /\d/.test(label))
       .slice(0, 6);
     const names = [label, ...aliases];
     const hit = names.flatMap((n) => variants(n)).map((k) => owner.get(k)).find(Boolean);
