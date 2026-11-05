@@ -59,6 +59,10 @@ const FOOD = "04-food.txt";
 const FRUITS = "05-fruits.txt";
 const TECH = "06-tech.txt";
 const SCIENCE = "07-science.txt";
+const MENS = "09-mens-football.txt";
+
+/** Footballers who played for any of `teams` (a club or national team), most famous first. */
+const playedFor = (...teams) => knownAs("Q937857", [], `VALUES ?team { ${wd(teams)} } ?item wdt:P54 ?team .`);
 
 export default [
   // ------------------------------------------------------------ Television
@@ -121,6 +125,25 @@ export default [
   { file: SPORTS, prompt: "Name a famous goalkeeper.", ...knownAs("Q937857", [], "?item wdt:P413 wd:Q201330 ."), limit: 100 },
   { file: SPORTS, prompt: "Name a famous sports stadium or arena.", wikidata: kindOf("Q483110"), limit: 150 },
   { file: SPORTS, prompt: "Name a martial art.", wikidata: kindOf("Q11417"), limit: 100 },
+
+  // ------------------------------------------------------------ Men's Football
+  ...[
+    ["England", "Q47762"], ["Brazil", "Q83459"], ["Argentina", "Q79800"], ["France", "Q47774"],
+    ["Germany", "Q43310"], ["Italy", "Q676899"], ["Spain", "Q42267"], ["Netherlands", "Q47050"],
+    ["Portugal", "Q267245"], ["Scotland", "Q34044"], ["Belgium", "Q166776"], ["Uruguay", "Q134916"],
+    ["Croatia", "Q134479"], ["United States", "Q164134"], ["Mexico", "Q164089"], ["Wales", "Q180857"],
+  ].map(([country, team]) => ({ file: MENS, prompt: `Name a famous men's footballer who has played for ${country}.`, ...playedFor(team), limit: 100, surnames: true })),
+  ...[
+    ["Manchester United", "Q18656"], ["Liverpool", "Q1130849"], ["Arsenal", "Q9617"], ["Chelsea", "Q9616"],
+    ["Manchester City", "Q50602"], ["Tottenham Hotspur", "Q18741"], ["Newcastle United", "Q18716"], ["Everton", "Q5794"],
+    ["West Ham United", "Q18747"], ["Barcelona", "Q7156"], ["Real Madrid", "Q8682"], ["Atlético Madrid", "Q8701"],
+    ["Bayern Munich", "Q15789"], ["Borussia Dortmund", "Q41420"], ["Juventus", "Q1422"], ["AC Milan", "Q1543"],
+    ["Inter Milan", "Q631"], ["Paris Saint-Germain", "Q483020"], ["Ajax", "Q81888"],
+  ].map(([club, team]) => ({ file: MENS, prompt: `Name a current or former ${club} player.`, ...playedFor(team), limit: 100, surnames: true })),
+  { file: MENS, prompt: "Name a current or former Celtic or Rangers player.", ...playedFor("Q19593", "Q19597"), limit: 100, surnames: true },
+  { file: MENS, prompt: "Name a famous African men's footballer.", ...knownAs("Q937857", [], "?item wdt:P1532/wdt:P30 wd:Q15 ."), limit: 100, surnames: true, exclude: "^(maria mutola|sergio canales madrazo)$" },
+  { file: MENS, prompt: "Name a famous football manager.", ...knownAs("Q628099", ["Q937857"]), limit: 120, surnames: true, exclude: "^(robinho|arjen robben|yaya tour.|mario mand.uki.|giorgio chiellini|ashley cole|leonardo bonucci|klaas-jan huntelaar|per mertesacker|makoto hasebe|thiago alc.ntara|marek ham..k|bacary sagna|thomas vermaelen|phil jones|leighton baines|atsuto uchida|franco baresi|carlos valderrama|michael essien|ricardo carvalho|john terry|franck rib.ry|dennis bergkamp|antonio di natale|gerd m.ller|shinji okazaki|rafael van der vaart)$" },
+  { file: MENS, prompt: "Name a football stadium.", wikidata: isA("Q1154710"), limit: 150, exclude: "^(rogers centre|the oval|stadium municipal|levi's stadium)$" },
 
   // ------------------------------------------------------------ Films
   { file: FILMS, prompt: "Name a Best Picture Oscar winner.", wikidata: `${film} ?item p:P166/ps:P166 wd:Q102427 .`, limit: 120 },
