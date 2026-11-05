@@ -160,7 +160,7 @@ function renderSetup() {
     document.getElementById("mixedOpts").hidden = mode !== "mixed";
     document.getElementById("themeOpts").hidden = mode !== "theme";
     document.getElementById("modeHint").textContent = mode === "mixed"
-      ? `Each round is ${QUESTIONS_PER_ROUND} questions, one from each theme.`
+      ? `Each round is ${QUESTIONS_PER_ROUND} questions, each from a different theme.`
       : `Each theme you pick is a round of ${QUESTIONS_PER_ROUND} questions from that theme.`;
     document.getElementById("start").textContent = where === "online" ? "Create a room" : "Start game";
   };

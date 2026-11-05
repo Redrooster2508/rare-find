@@ -346,7 +346,7 @@ export class Game {
     return q;
   }
 
-  /** Mixed: each round is one question from every theme. Theme: one round of 7 per chosen theme. */
+  /** Mixed: each round is one question from each of 7 random themes. Theme: one round of 7 per chosen theme. */
   newGame(mode, rounds, themeIds) {
     const pools = new Map(this.themes.map((t) => [t.id, shuffle(t.questions)]));
     const pick = (q) => ({ id: q.id, prompt: q.prompt, category: q.theme });
@@ -359,7 +359,8 @@ export class Game {
     }
     return Array.from({ length: Math.max(1, rounds) }, () => ({
       title: "Mixed round",
-      questions: this.themes.map((t) => pools.get(t.id).pop()).filter(Boolean).slice(0, QUESTIONS_PER_ROUND).map(pick),
+      questions: shuffle(this.themes).map((t) => pools.get(t.id)).filter((pool) => pool.length)
+        .slice(0, QUESTIONS_PER_ROUND).map((pool) => pick(pool.pop())),
     }));
   }
 

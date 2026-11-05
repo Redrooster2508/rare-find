@@ -1,7 +1,7 @@
 # 💎 Rare Find
 
 An open-ended trivia game where **the rarer your answer, the more points you score.**
-There are 700 questions across 7 themes, and it runs entirely in the browser.
+There are 800 questions across 8 themes, and it runs entirely in the browser.
 
 ## Play
 
@@ -14,10 +14,10 @@ Opening `index.html` straight from disk won't work, because the browser blocks l
 
 | Mode | Each round |
 |---|---|
-| **Mixed rounds** (default) | 7 questions, one from each theme. Choose 1–5 rounds. |
+| **Mixed rounds** (default) | 7 questions, each from a different theme, picked at random. Choose 1–5 rounds. |
 | **Theme rounds** | 7 questions from a single theme. Each theme you pick is one round. |
 
-The themes are Television, Sports, Films, Food, Fruits, Tech and Science, with 100 questions each. A question never repeats within a game.
+The themes are Television, Sports, Films, Food, Fruits, Tech, Science and Women's Football, with 100 questions each. A question never repeats within a game.
 
 - **Same device:** 1–8 people pass one phone or laptop around. Answers stay hidden until everyone has locked in.
 - **Online room:** one person picks *Online room → Create a room* and shares the 5-character code (or the invite link). Everyone else picks *Online room*, types the code and joins on their own device. All players answer at the same time, the host moves the game along, and up to 12 players can join.

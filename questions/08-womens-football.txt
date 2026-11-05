@@ -1,0 +1,301 @@
+@theme Women's Football
+
+Q: Name a famous women's footballer. [surnames]
+Alex Morgan; Megan Rapinoe; Marta; Sam Kerr; Mia Hamm; Alexia Putellas; Aitana Bonmati; Abby Wambach; Leah Williamson; Beth Mead; Lucy Bronze; Ada Hegerberg; Carli Lloyd; Christine Sinclair; Alessia Russo; Chloe Kelly; Mary Earps; Vivianne Miedema; Hope Solo; Jenni Hermoso; Lauren James; Millie Bright; Ellen White; Jill Scott; Kelly Smith; Pernille Harder; Wendie Renard; Brandi Chastain; Sophia Smith=Sophia Wilson; Trinity Rodman; Homare Sawa; Birgit Prinz; Alexandra Popp; Caroline Graham Hansen; Khadija Shaw=Bunny Shaw; Lieke Martens; Kim Little; Steph Houghton; Fran Kirby; Ella Toone; Georgia Stanway; Keira Walsh; Lauren Hemp; Mallory Swanson=Mallory Pugh; Tobin Heath; Asisat Oshoala; Linda Caicedo; Salma Paralluelo; Caitlin Foord; Mary Fowler; Eugenie Le Sommer; Amandine Henry; Lena Oberdorf; Dzsenifer Marozsan; Kadidiatou Diani; Ewa Pajor; Fridolina Rolfo; Guro Reiten; Hannah Hampton; Michelle Akers; Kristine Lilly; Formiga; Cristiane; Debinha; Naomi Girma; Barbra Banda; Temwa Chawinga; Melchie Dumornay; Lindsey Horan=Lindsey Heaps=Heaps; Rose Lavelle; Crystal Dunn; Becky Sauerbrunn; Alyssa Naeher; Nadine Angerer; Lotta Schelin; Kosovare Asllani; Ji So-yun; Lily Parr; Alex Scott; Fara Williams; Karen Carney; Erin Cuthbert; Katie McCabe; Jess Fishlock; Mapi Leon; Irene Paredes; Patri Guijarro; Olga Carmona; Mariona Caldentey; Lia Walti; Alisha Lehmann
+
+Q: Name a famous England Lioness. [surnames]
+Leah Williamson; Beth Mead; Lucy Bronze; Mary Earps; Chloe Kelly; Alessia Russo; Millie Bright; Lauren James; Ella Toone; Georgia Stanway; Keira Walsh; Lauren Hemp; Ellen White; Jill Scott; Alex Greenwood; Rachel Daly; Steph Houghton; Kelly Smith; Fara Williams; Hannah Hampton; Fran Kirby; Karen Carney; Michelle Agyemang; Jess Carter; Niamh Charles; Alex Scott; Casey Stoney; Faye White; Rachel Yankey; Toni Duggan; Nikita Parris; Jordan Nobbs; Karen Bardsley; Bethany England; Hope Powell; Esme Morgan; Grace Clinton; Aggie Beever-Jones; Lotte Wubben-Moy; Jess Park; Maya Le Tissier; Khiara Keating; Demi Stokes; Ellie Roebuck; Eni Aluko; Rachel Brown-Finnis; Sue Smith; Katie Chapman; Laura Bassett; Izzy Christiansen; Jade Moore; Sheila Parker
+
+Q: Name a famous US women's national team player. [surnames]
+Megan Rapinoe; Alex Morgan; Mia Hamm; Abby Wambach; Carli Lloyd; Hope Solo; Brandi Chastain; Julie Foudy; Tobin Heath; Christen Press; Kristine Lilly; Michelle Akers; Trinity Rodman; Sophia Smith=Sophia Wilson; Mallory Swanson=Mallory Pugh; Becky Sauerbrunn; Lindsey Horan=Lindsey Heaps=Heaps; Rose Lavelle; Julie Ertz=Julie Johnston; Crystal Dunn; Kelley O'Hara; Naomi Girma; Alyssa Naeher; Briana Scurry; Sam Mewis; Lauren Holiday=Lauren Cheney; Christie Pearce=Christie Rampone; Ali Krieger; Ashlyn Harris; Shannon Boxx; Heather O'Reilly; Joy Fawcett; Tiffeny Milbrett; Carla Overbeck; Catarina Macario; Emily Sonnett; Lynn Williams=Lynn Biyendolo; Tierna Davidson; Jaedyn Shaw; Alyssa Thompson; Emily Fox; Sam Coffey; Kristie Mewis
+
+Q: Name a famous Spanish women's footballer. [surnames]
+Alexia Putellas; Aitana Bonmati; Jenni Hermoso; Irene Paredes; Olga Carmona; Salma Paralluelo; Mapi Leon; Mariona Caldentey; Patri Guijarro; Cata Coll; Ona Batlle; Alba Redondo; Esther Gonzalez; Claudia Pina; Vicky Lopez; Laia Aleixandri; Teresa Abelleira; Misa Rodriguez; Sandra Panos; Marta Torrejon; Vero Boquete=Veronica Boquete; Lucia Garcia; Athenea del Castillo; Irene Guerrero; Leila Ouahabi; Laia Codina; Ivana Andres; Jana Fernandez; Maite Oroz; Lola Gallardo; Nahikari Garcia; Vicky Losada; Melanie Serrano; Amaiur Sarriegi; Eva Navarro
+
+Q: Name a famous Australian Matilda. [surnames]
+Sam Kerr; Mackenzie Arnold; Caitlin Foord; Mary Fowler; Hayley Raso; Steph Catley; Ellie Carpenter; Cortnee Vine; Katrina Gorry; Lydia Williams; Clare Polkinghorne; Lisa De Vanna; Alanna Kennedy; Emily van Egmond; Kyah Simon; Clare Hunt; Kyra Cooney-Cross; Tameka Yallop=Tameka Butt; Michelle Heyman; Amy Sayer; Teagan Micah; Courtney Nevin; Charli Grant; Emily Gielnik; Larissa Crummer; Cheryl Salisbury; Clare Wheeler; Chloe Logarzo; Julie Dolan; Heather Garriock
+
+Q: Name a famous German women's footballer. [surnames]
+Birgit Prinz; Alexandra Popp; Nadine Angerer; Dzsenifer Marozsan; Lena Oberdorf; Lina Magull; Giulia Gwinn; Klara Buhl; Lea Schuller; Sara Dabritz; Svenja Huth; Silvia Neid; Inka Grings; Nadine Kessler; Celia Sasic=Celia Okoyino da Mbabi; Steffi Jones; Renate Lingor; Kerstin Garefrekes; Anja Mittag; Ariane Hingst; Simone Laudehr; Almuth Schult; Merle Frohms; Ann-Katrin Berger; Sjoeke Nusken; Jule Brand; Kathrin Hendrich; Fatmire Alushi=Lira Bajramaj=Fatmire Bajramaj; Melanie Behringer; Annike Krahn; Saskia Bartusiak; Linda Dallmann; Melanie Leupolz; Martina Voss-Tecklenburg; Silke Rottenberg; Maren Meinert; Conny Pohlers; Nia Kunzer
+
+Q: Name a famous Brazilian women's footballer. [surnames]
+Marta; Formiga; Cristiane; Debinha; Kerolin; Sissi; Pretinha; Andressa Alves; Barbara=Barbara Barbosa; Rafaelle; Tamires; Geyse; Ludmila; Bia Zaneratto; Gabi Nunes; Adriana; Thaisa; Andressinha; Ary Borges; Rosana; Erika; Katia; Kathellen; Lorena; Antonia; Gabi Portilho; Duda Sampaio
+
+Q: Name a famous Dutch women's footballer. [surnames]
+Vivianne Miedema; Lieke Martens; Daniëlle van de Donk; Jill Roord; Sherida Spitse; Sari van Veenendaal; Jackie Groenen; Stefanie van der Gragt; Daphne van Domselaar; Dominique Janssen; Lineth Beerensteyn; Esmee Brugts; Victoria Pelova; Shanice van de Sanden; Anouk Dekker; Manon Melis; Katja Snoeijs; Lynn Wilms; Damaris Egurrola; Romee Leuchter; Kerstin Casparij; Wieke Kaptein; Merel van Dongen; Renate Jansen; Aniek Nouwen; Jill Diekman
+
+Q: Name a famous French women's footballer. [surnames]
+Wendie Renard; Eugenie Le Sommer; Amandine Henry; Kadidiatou Diani; Marie-Antoinette Katoto; Delphine Cascarino; Sakina Karchaoui; Grace Geyoro; Louisa Necib=Louisa Cadamuro; Kenza Dali; Gaetane Thiney; Camille Abily; Sarah Bouhaddi; Selma Bacha; Sandie Toletti; Pauline Peyraud-Magnin; Laure Boulleau; Marinette Pichon; Elodie Thomis; Elisa De Almeida; Clara Mateo; Valerie Gauvin; Griedge Mbock; Estelle Cascarino; Kheira Hamraoui; Laura Georges; Marie-Laure Delie; Sandy Baltimore; Melvine Malard; Eve Perisset; Naomie Feller; Aurelie Kaci
+
+Q: Name a famous Norwegian women's footballer. [surnames]
+Ada Hegerberg; Caroline Graham Hansen; Guro Reiten; Maren Mjelde; Frida Maanum; Ingrid Syrstad Engen=Ingrid Engen; Hege Riise; Bente Nordby; Solveig Gulbrandsen; Isabell Herlovsen; Linda Medalen; Ann Kristin Aarønes=Ann Kristin Aarones; Marianne Pettersen; Vilde Bøe Risa=Vilde Boe Risa; Tuva Hansen; Ingrid Hjelmseth; Emilie Haavi; Andrine Hegerberg; Signe Gaupset; Lisa-Marie Utland=Lisa-Marie Karlseng Utland; Cecilie Fiskerstrand; Gunn Nyborg; Heidi Store; Trine Bjerke Ronning
+
+Q: Name a famous Swedish women's footballer. [surnames]
+Lotta Schelin; Hedvig Lindahl; Caroline Seger; Fridolina Rolfo; Stina Blackstenius; Kosovare Asllani=Kosse Asllani; Magdalena Eriksson; Nilla Fischer; Victoria Sandell Svensson=Victoria Svensson; Hanna Ljungberg; Therese Sjogran; Pia Sundhage; Lisa Dahlkvist; Sofia Jakobsson; Amanda Ilestedt; Filippa Angeldal; Johanna Rytting Kaneryd; Zecira Musovic; Linda Sembrant; Jonna Andersson; Hanna Glas; Malin Mostrom; Nathalie Bjorn; Lina Hurtig; Elin Rubensson; Madelen Janogy; Hanna Lundkvist; Rosa Kafaji; Hanna Bennison
+
+Q: Name a famous Canadian women's footballer. [surnames]
+Christine Sinclair; Kadeisha Buchanan; Jessie Fleming; Ashley Lawrence; Stephanie Labbe; Janine Beckie; Sophie Schmidt; Diana Matheson; Kailen Sheridan; Vanessa Gilles; Adriana Leon; Jordyn Huitema; Quinn; Allysha Chapman; Deanne Rose; Melissa Tancredi; Rhian Wilkinson; Erin McLeod; Karina LeBlanc; Desiree Scott; Cloe Lacasse; Evelyne Viens; Julia Grosso; Olivia Smith; Kara Lang; Charmaine Hooper; Andrea Neil; Shelina Zadorsky; Nichelle Prince
+
+Q: Name a famous Japanese women's footballer. [surnames]
+Homare Sawa; Saki Kumagai; Mana Iwabuchi; Yuki Nagasato=Yuki Ogimi; Aya Miyama; Hinata Miyazawa; Nahomi Kawasumi; Shinobu Ohno; Ayumi Kaihori; Mizuho Sakaguchi; Yui Hasegawa; Riko Ueki; Fuka Nagano; Aoba Fujino; Mina Tanaka; Kumi Yokoyama; Azusa Iwashimizu; Rumi Utsugi; Yuika Sugasawa; Hina Sugita; Ayaka Yamashita; Saori Ariyoshi; Kozue Ando; Maika Hamano; Risa Shimizu
+
+Q: Name a famous women's footballer from Africa. [surnames]
+Asisat Oshoala; Barbra Banda; Thembi Kgatlana; Temwa Chawinga; Chiamaka Nnadozie; Rasheedat Ajibade; Racheal Kundananji; Perpetua Nkwocha; Ajara Nchout; Gaelle Enganamouit; Hildah Magaia; Refiloe Jane; Janine van Wyk; Ghizlane Chebbak; Tabitha Chawinga; Mercy Akide; Genoveva Anonma; Onome Ebi; Michelle Alozie; Desire Oparanozie; Francisca Ordega; Portia Modise; Noko Matlou; Grace Chanda; Esther Okoronkwo; Ashleigh Plumptre; Toni Payne
+
+Q: Name a famous Nigerian Super Falcon. [surnames]
+Asisat Oshoala; Chiamaka Nnadozie; Rasheedat Ajibade; Perpetua Nkwocha; Mercy Akide; Onome Ebi; Desire Oparanozie; Francisca Ordega; Michelle Alozie; Ashleigh Plumptre; Toni Payne; Esther Okoronkwo; Uchenna Kanu; Ngozi Okobi; Ifeoma Dieke; Osinachi Ohale; Rita Chikwelu; Halimatu Ayinde; Ngozi Ebere; Christy Ucheibe; Florence Omagbemi
+
+Q: Name a famous women's footballer from Latin America or the Caribbean (not Brazil). [surnames]
+Linda Caicedo; Khadija Shaw=Bunny Shaw; Mayra Ramirez; Christiane Endler; Melchie Dumornay; Catalina Usme; Charlyn Corral; Raquel Rodriguez; Estefania Banini; Leicy Santos; Kenti Robles; Lizbeth Ovalle; Shirley Cruz; Maribel Dominguez; Jacqueline Ovalle; Daniela Montoya; Yamila Rodriguez; Melissa Herrera; Marta Cox; Stephany Mayor; Allyson Swaby; Havana Solaun; Nerilia Mondesir; Karen Araya; Yanara Aedo; Deyna Castellanos
+
+Q: Name a famous footballer from Scotland, Wales, Ireland or Northern Ireland's women's teams. [surnames]
+Kim Little; Caroline Weir; Erin Cuthbert; Jess Fishlock; Katie McCabe; Denise O'Sullivan; Rachel Corsie; Julie Fleeting; Sophie Ingle; Louise Quinn; Claire Emslie; Lee Alexander; Jen Beattie; Natasha Harding; Courtney Brosnan; Megan Connolly; Kyra Carusa; Angharad James; Hayley Ladd; Lisa Evans; Martha Thomas; Niamh Fahey; Ruesha Littlejohn; Heather Payne; Diane Caldwell; Rachel Furness; Simone Magill; Julie Nelson; Carrie Jones; Ceri Holland; Lily Woodham; Rhiannon Roberts; Fiona Brown; Sophie Howard; Rose Reilly
+
+Q: Name a famous Italian women's footballer. [surnames]
+Sara Gama; Cristiana Girelli; Barbara Bonansea; Manuela Giugliano; Valentina Giacinti; Elisa Bartoli; Laura Giuliani; Carolina Morace; Patrizia Panico; Arianna Caruso; Lisa Boattin; Elena Linari; Martina Rosucci; Sofia Cantore; Valentina Cernoia; Elisabetta Vignotto; Melania Gabbiadini; Aurora Galli; Martina Piemonte; Benedetta Glionna; Giulia Dragoni; Cecilia Salvai
+
+Q: Name a famous footballer from Denmark, Iceland or Finland's women's teams. [surnames]
+Pernille Harder; Nadia Nadim; Sara Bjork Gunnarsdottir; Sveindis Jane Jonsdottir; Glodis Perla Viggosdottir; Sanne Troelsgaard; Signe Bruun; Sofie Junge Pedersen; Katrine Veje; Dagny Brynjarsdottir; Margret Lara Vidarsdottir=Margrét Lára Viðarsdóttir; Tinja-Riikka Korpela; Stine Larsen; Amalie Vangsgaard; Janni Thomsen; Emma Snerle; Linda Sallstrom; Natalia Kuikka; Eveliina Summanen; Adelina Engman; Karolina Lea Vilhjalmsdottir; Cecilia Ran Runarsdottir; Gunnhildur Yrsa Jonsdottir; Simone Boye Sorensen=Simone Boye Sørensen; Johanna Rasmussen; Rikke Sevecke
+
+Q: Name a famous Chinese women's footballer. [surnames]
+Sun Wen; Wang Shuang; Liu Ailing; Gao Hong; Wang Shanshan; Han Duan; Pu Wei; Zhang Linyan; Tang Jiali; Shen Mengyu; Bi Yan; Fan Yunjie; Zhao Lina; Li Ying; Ma Xiaoxu; Wang Liping; Zhu Yu; Shui Qingxia
+
+Q: Name a famous New Zealand Football Fern. [surnames]
+Ali Riley; Abby Erceg; Hannah Wilkinson; Ria Percival; Katie Bowen; Erin Nayler; Amber Hearn; Betsy Hassett; CJ Bott; Rebekah Stott; Annalie Longo; Indiah-Paige Riley; Jacqui Hand; Olivia Chance; Victoria Esson; Milly Clegg; Malia Steinmetz; Meikayla Moore; Anna Green; Sarah Gregorius
+
+Q: Name a famous Belgian, Swiss or Austrian women's footballer. [surnames]
+Alisha Lehmann; Lia Walti; Ramona Bachmann; Tessa Wullaert; Ana-Maria Crnogorcevic; Lara Dickenmann; Manuela Zinsberger; Sarah Puntigam; Nicole Billa; Laura Feiersinger; Sarah Zadrazil; Viktoria Schnaderbeck; Gaelle Thalmann; Geraldine Reuteler; Sydney Schertenleib; Riola Xhemaili; Noelle Maritz; Iman Beney; Laura Wienroither; Carina Wenninger; Janice Cayman; Justine Vanhaevermaet; Tine De Caigny; Elena Dhont; Nicky Evrard; Barbara Dunst; Coumba Sow
+
+Q: Name a famous Portuguese or Polish women's footballer. [surnames]
+Ewa Pajor; Kika Nazareth; Jessica Silva; Dolores Silva; Ana Borges; Carole Costa; Tatiana Pinto; Andreia Norton; Telma Encarnacao; Ines Pereira; Ewelina Kamczyk; Natalia Padilla-Bidas=Natalia Padilla; Dominika Grabowska; Katarzyna Kiedrzynek; Paulina Dudek; Patricia Morais; Diana Gomes; Lucia Alves
+
+Q: Name a current or former Chelsea Women player. [surnames]
+Sam Kerr; Millie Bright; Fran Kirby; Lauren James; Lucy Bronze; Pernille Harder; Magdalena Eriksson; Guro Reiten; Erin Cuthbert; Ji So-yun; Hannah Hampton; Mayra Ramirez; Ann-Katrin Berger; Bethany England; Sophie Ingle; Naomi Girma; Ellie Carpenter; Niamh Charles; Jess Carter; Kadeisha Buchanan; Sjoeke Nusken; Johanna Rytting Kaneryd; Maren Mjelde; Melanie Leupolz; Jonna Andersson; Katie Chapman; Eni Aluko; Karen Carney; Hedvig Lindahl; Zecira Musovic; Jessie Fleming; Mia Fishel; Catarina Macario; Aggie Beever-Jones; Wieke Kaptein; Sandy Baltimore; Drew Spence; Gilly Flaherty
+
+Q: Name a current or former Arsenal Women player. [surnames]
+Beth Mead; Vivianne Miedema; Leah Williamson; Kim Little; Alessia Russo; Kelly Smith; Jordan Nobbs; Katie McCabe; Chloe Kelly; Lia Walti; Mariona Caldentey; Stina Blackstenius; Frida Maanum; Caitlin Foord; Lotte Wubben-Moy; Daniëlle van de Donk; Alex Scott; Faye White; Rachel Yankey; Karen Carney; Steph Houghton; Emma Byrne; Lisa Evans; Jen Beattie; Manuela Zinsberger; Daphne van Domselaar; Emily Fox; Olivia Smith; Steph Catley; Laura Wienroither; Kyra Cooney-Cross; Amanda Ilestedt; Victoria Pelova; Leonie Maier; Noelle Maritz; Tobin Heath; Dominique Janssen; Jill Roord; Rafaelle; Lydia Williams; Mana Iwabuchi; Asisat Oshoala; Danielle Carter; Gilly Flaherty; Jayne Ludlow; Marieanne Spacey
+
+Q: Name a current or former Barcelona Femení player. [surnames]
+Alexia Putellas; Aitana Bonmati; Jenni Hermoso; Caroline Graham Hansen; Lieke Martens; Patri Guijarro; Mapi Leon; Irene Paredes; Fridolina Rolfo; Salma Paralluelo; Keira Walsh; Lucy Bronze; Asisat Oshoala; Ewa Pajor; Sandra Panos; Cata Coll; Ona Batlle; Marta Torrejon; Mariona Caldentey; Claudia Pina; Vicky Lopez; Kika Nazareth; Ingrid Syrstad Engen=Ingrid Engen; Toni Duggan; Leila Ouahabi; Geyse; Ana-Maria Crnogorcevic; Vicky Losada; Melanie Serrano; Bruna Vilamala; Esmee Brugts; Kheira Hamraoui; Sydney Schertenleib; Laia Codina; Lola Gallardo
+
+Q: Name a current or former Lyon women's player. [surnames]
+Ada Hegerberg; Wendie Renard; Eugenie Le Sommer; Amandine Henry; Lucy Bronze; Dzsenifer Marozsan; Camille Abily; Louisa Necib=Louisa Cadamuro; Sarah Bouhaddi; Lotta Schelin; Saki Kumagai; Delphine Cascarino; Selma Bacha; Kadidiatou Diani; Lindsey Horan=Lindsey Heaps=Heaps; Christiane Endler; Daniëlle van de Donk; Melchie Dumornay; Alex Morgan; Megan Rapinoe; Shanice van de Sanden; Catarina Macario; Sara Dabritz; Vanessa Gilles; Damaris Egurrola; Ellie Carpenter; Griedge Mbock; Kadeisha Buchanan; Elodie Thomis; Lara Dickenmann; Sara Bjork Gunnarsdottir; Laura Georges; Sonia Bompastor
+
+Q: Name a current or former Manchester City Women player. [surnames]
+Steph Houghton; Lucy Bronze; Khadija Shaw=Bunny Shaw; Ellen White; Jill Scott; Lauren Hemp; Alex Greenwood; Keira Walsh; Chloe Kelly; Georgia Stanway; Karen Bardsley; Ellie Roebuck; Vivianne Miedema; Sam Mewis; Rose Lavelle; Carli Lloyd; Caroline Weir; Toni Duggan; Nikita Parris; Demi Stokes; Izzy Christiansen; Jess Park; Esme Morgan; Yui Hasegawa; Mary Fowler; Kerstin Casparij; Laia Aleixandri; Janine Beckie; Hayley Raso; Alanna Kennedy; Filippa Angeldal; Leila Ouahabi; Ayaka Yamashita; Jen Beattie; Khiara Keating
+
+Q: Name a current or former Manchester United Women player. [surnames]
+Mary Earps; Ella Toone; Alessia Russo; Katie Zelem; Lauren James; Maya Le Tissier; Leah Galton; Nikita Parris; Christen Press; Tobin Heath; Ona Batlle; Lucia Garcia; Grace Clinton; Hinata Miyazawa; Geyse; Elisabeth Terland; Melvine Malard; Millie Turner; Hannah Blundell; Martha Thomas; Rachel Williams; Jackie Groenen; Kirsty Hanson; Gabby George; Aoife Mannion; Phallon Tullis-Joyce; Siobhan Chamberlain; Lizzie Arnot; Jess Sigsworth
+
+Q: Name a current or former Wolfsburg women's player. [surnames]
+Alexandra Popp; Pernille Harder; Nadine Kessler; Ewa Pajor; Lena Oberdorf; Svenja Huth; Almuth Schult; Caroline Graham Hansen; Lena Goessling=Lena Goeßling; Martina Muller; Conny Pohlers; Lara Dickenmann; Dominique Janssen; Jill Roord; Kathrin Hendrich; Merle Frohms; Lynn Wilms; Ingrid Syrstad Engen=Ingrid Engen; Fridolina Rolfo; Nilla Fischer; Zsanett Jakabfi; Sara Bjork Gunnarsdottir; Jule Brand; Sveindis Jane Jonsdottir; Rebecka Blomqvist; Lena Lattwein
+
+Q: Name a current or former Portland Thorns player. [surnames]
+Christine Sinclair; Tobin Heath; Lindsey Horan=Lindsey Heaps=Heaps; Sophia Smith=Sophia Wilson; Alex Morgan; Crystal Dunn; Becky Sauerbrunn; Adrianna Franch; Rocky Rodriguez; Hina Sugita; Emily Sonnett; Meghan Klingenberg; Midge Purce; Morgan Weaver; Olivia Moultrie; Dagny Brynjarsdottir; Amandine Henry; Nadine Angerer; Allie Long; Ellie Carpenter; Kelli Hubly; Bella Bixby; Sam Coffey; Natalia Kuikka; Jessie Fleming; Raquel Rodriguez; Janine Beckie
+
+Q: Name a current or former Paris Saint-Germain women's player. [surnames]
+Kadidiatou Diani; Marie-Antoinette Katoto; Grace Geyoro; Sakina Karchaoui; Christiane Endler; Laure Boulleau; Marie-Laure Delie; Ashley Lawrence; Kheira Hamraoui; Jordyn Huitema; Formiga; Irene Paredes; Lieke Martens; Tabitha Chawinga; Shirley Cruz; Veronica Boquete; Cristiane; Fatmire Alushi; Laura Georges; Sandy Baltimore; Elisa De Almeida; Kosovare Asllani; Ramona Bachmann; Jackie Groenen; Katarzyna Kiedrzynek; Eve Perisset
+
+Q: Name a current or former Bayern Munich women's player. [surnames]
+Lina Magull; Giulia Gwinn; Klara Buhl; Lea Schuller; Pernille Harder; Magdalena Eriksson; Lena Oberdorf; Georgia Stanway; Glodis Perla Viggosdottir; Linda Dallmann; Sydney Lohmann; Sarah Zadrazil; Jovana Damnjanovic; Melanie Leupolz; Simone Laudehr; Sara Dabritz; Tuva Hansen; Carolin Simon; Lineth Beerensteyn; Jill Roord; Mana Iwabuchi; Sarah Puntigam
+
+Q: Name a current or former Real Madrid women's player. [surnames]
+Linda Caicedo; Caroline Weir; Olga Carmona; Misa Rodriguez; Athenea del Castillo; Maite Oroz; Kathellen; Naomie Feller; Esther Gonzalez; Ivana Andres; Teresa Abelleira; Alba Redondo; Kenti Robles; Sofie Svava; Filippa Angeldal; Melanie Leupolz; Claudia Zornoza; Aurelie Kaci; Nahikari Garcia; Maria Mendez; Oihane Hernandez
+
+Q: Name a famous women's footballer from outside Europe who has played in the WSL. [surnames]
+Sam Kerr; Khadija Shaw=Bunny Shaw; Mary Fowler; Caitlin Foord; Steph Catley; Ji So-yun; Mayra Ramirez; Naomi Girma; Hayley Raso; Kyra Cooney-Cross; Christen Press; Tobin Heath; Rose Lavelle; Sam Mewis; Carli Lloyd; Asisat Oshoala; Jessie Fleming; Kadeisha Buchanan; Alanna Kennedy; Emily Fox; Olivia Smith; Ellie Carpenter; Yui Hasegawa; Hinata Miyazawa; Geyse; Mana Iwabuchi; Lydia Williams; Janine Beckie; Catarina Macario; Mia Fishel; Ali Riley; Ayaka Yamashita
+
+Q: Name a club Marta has played for.
+Orlando Pride=Orlando; Umea IK=Umea; FC Rosengard=Rosengard=LdB Malmo; Santos; Tyreso; Los Angeles Sol=LA Sol; Western New York Flash=WNY Flash; FC Gold Pride=Gold Pride; Vasco da Gama=Vasco; Santa Cruz
+
+Q: Name a club Sam Kerr has played for.
+Chelsea; Perth Glory; Chicago Red Stars=Chicago Stars; Sydney FC; Sky Blue FC=Sky Blue; Western New York Flash=WNY Flash
+
+Q: Name a club Alex Morgan has played for.
+San Diego Wave=San Diego; Orlando Pride=Orlando; Portland Thorns=Portland; Lyon=Olympique Lyonnais; Tottenham Hotspur=Tottenham=Spurs; Seattle Sounders Women=Seattle Sounders; Western New York Flash=WNY Flash; California Golden Bears=Cal
+
+Q: Name a club Lucy Bronze has played for.
+Barcelona=Barca; Lyon=Olympique Lyonnais; Manchester City=Man City; Chelsea; Liverpool; Everton; Sunderland; North Carolina Tar Heels=UNC
+
+Q: Name a famous women's football manager or head coach. [surnames]
+Sarina Wiegman; Emma Hayes; Jill Ellis; Pia Sundhage; Jorge Vilda; Tony Gustavsson; Vlatko Andonovski; Silvia Neid; Hope Powell; Phil Neville; Sonia Bompastor; Jonatan Giraldez; Corinne Diacre; Jonas Eidevall; Gareth Taylor; Marc Skinner; Bev Priestman; Montse Tome; Renee Slegers; Martina Voss-Tecklenburg; Anson Dorrance; Casey Stoney; Laura Harvey; Joe Montemurro; Herve Renard; Norio Sasaki; Peter Gerhardsson; Hege Riise; Tina Theune; Horst Hrubesch; Christian Wuck; Laurent Bonadei; Arthur Elias; Mark Parsons; Andries Jonker; Lluis Cortes; Pere Romeu; Even Pellerud; Shelley Kerr; Rhian Wilkinson; Gemma Grainger; Mark Sampson
+
+Q: Name a famous goalkeeper in women's football. [surnames]
+Mary Earps; Hope Solo; Alyssa Naeher; Hannah Hampton; Christiane Endler; Nadine Angerer; Sari van Veenendaal; Hedvig Lindahl; Mackenzie Arnold; Briana Scurry; Cata Coll; Sarah Bouhaddi; Ann-Katrin Berger; Merle Frohms; Ayumi Kaihori; Stephanie Labbe; Lydia Williams; Karen Bardsley; Ellie Roebuck; Manuela Zinsberger; Daphne van Domselaar; Zecira Musovic; Kailen Sheridan; Chiamaka Nnadozie; Sandra Panos; Misa Rodriguez; Bente Nordby; Almuth Schult; Pauline Peyraud-Magnin; Lola Gallardo; Courtney Brosnan; Laura Giuliani; Silke Rottenberg; Teagan Micah; Erin McLeod; Karina LeBlanc; Khiara Keating; Adrianna Franch; Gao Hong; Barbara=Barbara Barbosa
+
+Q: Name a famous captain in women's football. [surnames]
+Leah Williamson; Steph Houghton; Millie Bright; Megan Rapinoe; Alex Morgan; Christine Sinclair; Sam Kerr; Alexia Putellas; Becky Sauerbrunn; Lindsey Horan=Lindsey Heaps=Heaps; Wendie Renard; Alexandra Popp; Irene Paredes; Ivana Andres; Sherida Spitse; Caroline Seger; Kosovare Asllani; Maren Mjelde; Saki Kumagai; Homare Sawa; Katie McCabe; Rachel Corsie; Sophie Ingle; Kim Little; Faye White; Casey Stoney; Christie Pearce=Christie Rampone; Julie Foudy; Carla Overbeck; Sara Gama; Ali Riley; Clare Polkinghorne; Nadine Kessler; Birgit Prinz; Lia Walti; Amandine Henry
+
+Q: Name a women's footballer known by just one name.
+Marta; Formiga; Cristiane; Debinha; Sissi; Kerolin; Geyse; Barbara; Rafaelle; Tamires; Pretinha; Andressinha; Ludmila; Kathellen; Quinn; Thaisa; Adriana; Rosana; Antonia; Lorena; Erika; Katia
+
+Q: Name a player who has won the Ballon d'Or Féminin or FIFA's women's player of the year. [surnames]
+Marta; Aitana Bonmati; Alexia Putellas; Megan Rapinoe; Mia Hamm; Ada Hegerberg; Carli Lloyd; Birgit Prinz; Abby Wambach; Lucy Bronze; Homare Sawa; Lieke Martens; Nadine Angerer; Nadine Kessler
+
+Q: Name a player who has won the Golden Boot at a Women's World Cup. [surnames]
+Megan Rapinoe; Marta; Hinata Miyazawa; Homare Sawa; Birgit Prinz; Michelle Akers; Celia Sasic=Celia Okoyino da Mbabi; Sun Wen; Sissi; Ann Kristin Aarønes=Ann Kristin Aarones
+
+Q: Name a player who has scored in a Women's World Cup final. [surnames]
+Carli Lloyd; Megan Rapinoe; Olga Carmona; Rose Lavelle; Alex Morgan; Abby Wambach; Homare Sawa; Birgit Prinz; Michelle Akers; Aya Miyama; Lauren Holiday=Lauren Cheney; Tobin Heath; Yuki Nagasato=Yuki Ogimi; Hanna Ljungberg; Simone Laudehr; Nia Kunzer; Maren Meinert; Hege Riise; Marianne Pettersen; Linda Medalen
+
+Q: Name a player who has scored 100 or more international goals in women's football. [surnames]
+Christine Sinclair; Abby Wambach; Mia Hamm; Marta; Carli Lloyd; Kristine Lilly; Alex Morgan; Birgit Prinz; Michelle Akers; Julie Fleeting; Sun Wen; Patrizia Panico; Carolina Morace; Elisabetta Vignotto; Tiffeny Milbrett; Portia Modise
+
+Q: Name a women's football TV pundit or commentator. [surnames]
+Alex Scott; Karen Carney; Ian Wright; Jill Scott; Fara Williams; Ellen White; Eni Aluko; Sue Smith; Rachel Brown-Finnis; Robyn Cowen; Jacqui Oatley; Gabby Logan; Steph Houghton; Rachel Yankey; Jonathan Pearce; Vicki Sparks; Lucy Ward; Izzy Christiansen; Anita Asante; Kelly Smith; Laura Woods; Jen Beattie; Julie Foudy; Aly Wagner; Carli Lloyd; Abby Wambach; Kate Abdo; Kate Scott
+
+Q: Name a pioneer of women's football (a person or a team).
+Lily Parr=Parr; Dick, Kerr Ladies=Dick Kerr Ladies=Dick Kerr's Ladies; Mia Hamm=Hamm; Nettie Honeyball=Honeyball; Michelle Akers=Akers; Hope Powell=Powell; Brandi Chastain=Chastain; Lady Florence Dixie=Florence Dixie; Alice Kell; Alfred Frankland; Sheila Parker; Sue Lopez; Rose Reilly; Kristine Lilly; Marta; Elba Selva; Doncaster Belles; British Ladies' Football Club
+
+Q: Name a country that has won the FIFA Women's World Cup.
+United States=USA=US=America=USWNT; Germany; Japan; Norway; Spain
+
+Q: Name a country that has hosted the FIFA Women's World Cup.
+Australia; New Zealand; France; Canada; Germany; United States=USA=US=America; China; Sweden
+
+Q: Name a country that has played in a FIFA Women's World Cup final.
+United States=USA=US=America; England; Spain; Germany; Japan; Netherlands=Holland; Sweden; Norway; Brazil; China
+
+Q: Name a country that has played at a FIFA Women's World Cup.
+United States=USA=US=America; England; Germany; Spain; Brazil; Japan; Australia; Sweden; Norway; France; Canada; Netherlands=Holland; China; New Zealand; Nigeria; South Africa; Jamaica; Italy; Scotland; Republic of Ireland=Ireland; Denmark; Colombia; Argentina; Mexico; South Korea=Korea Republic; North Korea=Korea DPR; Chile; Morocco; Cameroon; Zambia; Ghana; Switzerland; Equatorial Guinea; Ecuador; Costa Rica; Thailand; Panama; Haiti; Philippines; Vietnam; Portugal; Chinese Taipei=Taiwan; Russia; Ivory Coast=Cote d'Ivoire
+
+Q: Name a team that played at the 2023 Women's World Cup.
+Australia; England; Spain; United States=USA=US=America; Sweden; Japan; New Zealand; France; Brazil; Germany; Netherlands=Holland; Colombia; Canada; Jamaica; Nigeria; Norway; Republic of Ireland=Ireland; Morocco; South Africa; Denmark; China; Italy; Argentina; Philippines; Switzerland; Zambia; South Korea=Korea Republic; Portugal; Costa Rica; Haiti; Panama; Vietnam
+
+Q: Name a country that has won the Women's Euros.
+Germany=West Germany; England; Norway; Netherlands=Holland; Sweden
+
+Q: Name a country that has played in a Women's Euros final.
+Germany=West Germany; England; Spain; Norway; Sweden; Netherlands=Holland; Denmark; Italy
+
+Q: Name a country that has hosted the Women's Euros.
+England; Switzerland; Netherlands=Holland; Sweden; Germany=West Germany; Finland; Norway; Denmark; Italy
+
+Q: Name a team that played at the Women's Euros in 2022 or 2025.
+England; Spain; Germany; France; Netherlands=Holland; Sweden; Norway; Italy; Switzerland; Denmark; Wales; Iceland; Belgium; Portugal; Austria; Finland; Northern Ireland; Poland
+
+Q: Name a country that has won an Olympic medal in women's football.
+United States=USA=US=America; Canada; Germany; Brazil; Sweden; Norway; Japan; China
+
+Q: Name a country that has won the AFC Women's Asian Cup.
+China; Japan; Australia; North Korea=Korea DPR; Chinese Taipei=Taiwan; Thailand; New Zealand
+
+Q: Name a club that has played in the Women's Super League (any season).
+Chelsea; Arsenal; Manchester City=Man City; Manchester United=Man United=Man Utd; Liverpool; Tottenham Hotspur=Tottenham=Spurs; Aston Villa=Villa; Everton; Brighton & Hove Albion=Brighton; West Ham United=West Ham; Leicester City=Leicester; Reading; Birmingham City=Birmingham; Bristol City=Bristol Academy; Crystal Palace; London City Lionesses; Notts County; Sunderland; Yeovil Town=Yeovil; Doncaster Rovers Belles=Doncaster Belles=Doncaster; Lincoln Ladies=Lincoln
+
+Q: Name a club that has played in England's Women's Championship (any season).
+Birmingham City=Birmingham; Bristol City; London City Lionesses; Sunderland; Charlton Athletic=Charlton; Durham; Southampton; Sheffield United; Blackburn Rovers=Blackburn; Lewes; Crystal Palace; Watford; Reading; Newcastle United=Newcastle; Leicester City=Leicester; Aston Villa; Liverpool; Tottenham Hotspur=Tottenham=Spurs; Manchester United=Man United=Man Utd; Brighton & Hove Albion=Brighton; Everton; Coventry United; London Bees; Millwall Lionesses=Millwall; Doncaster Rovers Belles=Doncaster Belles; Yeovil Town=Yeovil; Oxford United; Sheffield FC
+
+Q: Name a club that has won the Women's FA Cup.
+Arsenal; Chelsea; Manchester City=Man City; Manchester United=Man United=Man Utd; Doncaster Rovers Belles=Doncaster Belles; Southampton; Everton=Leasowe Pacific; Birmingham City=Birmingham; Charlton Athletic=Charlton; Fulham; Croydon; Millwall Lionesses=Millwall
+
+Q: Name a club that has won the UEFA Women's Champions League (or the UEFA Women's Cup).
+Lyon=Olympique Lyonnais=OL Lyonnes; Barcelona=Barca; Wolfsburg; Arsenal; Eintracht Frankfurt=Frankfurt=1. FFC Frankfurt; Turbine Potsdam=Potsdam; Umea IK=Umea; FCR 2001 Duisburg=Duisburg
+
+Q: Name a club that has played in a Women's Champions League final.
+Lyon=Olympique Lyonnais=OL Lyonnes; Barcelona=Barca; Wolfsburg; Chelsea; Arsenal; Paris Saint-Germain=PSG; Eintracht Frankfurt=Frankfurt=1. FFC Frankfurt; Turbine Potsdam=Potsdam; Umea IK=Umea; FCR 2001 Duisburg=Duisburg; Tyreso; Djurgarden; Fortuna Hjørring=Fortuna Hjorring; Zvezda Perm
+
+Q: Name an NWSL team (any season).
+Portland Thorns=Portland; Orlando Pride=Orlando; Kansas City Current=KC Current; Washington Spirit=Washington; San Diego Wave=San Diego; Angel City=Angel City FC; Gotham FC=NJ/NY Gotham=Sky Blue FC; North Carolina Courage=NC Courage; Chicago Red Stars=Chicago Stars; Seattle Reign=OL Reign=Reign; Houston Dash=Houston; Racing Louisville=Louisville; Utah Royals=Utah; Bay FC; Boston Legacy; Denver Summit; Western New York Flash=WNY Flash; FC Kansas City; Boston Breakers
+
+Q: Name a team that has won the NWSL Championship.
+Portland Thorns=Portland; North Carolina Courage=NC Courage; Orlando Pride=Orlando; Gotham FC=NJ/NY Gotham; Washington Spirit=Washington; FC Kansas City; Western New York Flash=WNY Flash
+
+Q: Name a club in Spain's top women's league (Liga F, any season).
+Barcelona=Barca; Real Madrid; Atletico Madrid; Athletic Club=Athletic Bilbao; Real Sociedad; Levante; Sevilla; Valencia; Madrid CFF; Granada; Real Betis=Betis; Sporting de Huelva=Sporting Huelva; Espanyol; Deportivo La Coruna=Deportivo Abanca=Deportivo; Costa Adeje Tenerife=Tenerife; Eibar; Villarreal; Levante Las Planas; Alhama; Rayo Vallecano
+
+Q: Name a club in the French women's top flight (any season).
+Lyon=Olympique Lyonnais=OL Lyonnes; Paris Saint-Germain=PSG; Paris FC; Montpellier; Bordeaux; Fleury=Fleury 91; Dijon; Guingamp; Reims; Le Havre; Saint-Etienne; Juvisy; Soyaux; Nantes; Strasbourg; Marseille
+
+Q: Name a club in Germany's Frauen-Bundesliga (any season).
+Wolfsburg; Bayern Munich=Bayern; Eintracht Frankfurt=Frankfurt; Turbine Potsdam=Potsdam; 1. FFC Frankfurt=FFC Frankfurt; Hoffenheim; SC Freiburg=Freiburg; Werder Bremen; Bayer Leverkusen=Leverkusen; FC Koln=Cologne; SGS Essen=Essen; FCR 2001 Duisburg=Duisburg; RB Leipzig; Hamburger SV=Hamburg; Carl Zeiss Jena=Jena; SC Sand=Sand; Bad Neuenahr; TSV Siegen=Siegen
+
+Q: Name a club in Italy's Serie A Femminile (any season).
+Juventus; Roma; AC Milan=Milan; Inter Milan=Inter; Fiorentina; Sassuolo; Napoli; Lazio; Como; Sampdoria; Brescia; Verona=Bardolino Verona; Pomigliano; Torres; Tavagnacco
+
+Q: Name a club in Sweden's Damallsvenskan (any season).
+FC Rosengard=Rosengard=LdB Malmo; Umea IK=Umea; BK Hacken=Hacken; Hammarby; Linkoping; Kopparbergs/Goteborg FC=Goteborg; Djurgarden; AIK; Kristianstad; Pitea; Vittsjo; Eskilstuna United; Tyreso; Orebro
+
+Q: Name a team in Australia's A-League Women (or the old W-League).
+Sydney FC; Melbourne Victory; Melbourne City; Brisbane Roar; Western Sydney Wanderers; Perth Glory; Adelaide United; Newcastle Jets; Canberra United; Western United; Wellington Phoenix; Central Coast Mariners
+
+Q: Name a club in Mexico's Liga MX Femenil.
+Tigres=Tigres UANL; Monterrey=Rayadas; America=Club America; Guadalajara=Chivas; Pachuca; Toluca; Cruz Azul; Pumas=UNAM; Santos Laguna; Atlas; Leon; Tijuana=Xolos; Necaxa; Queretaro; Puebla; Juarez; Mazatlan; Atletico San Luis=San Luis
+
+Q: Name a Brazilian club with a women's team.
+Corinthians; Palmeiras; Santos; Sao Paulo; Flamengo; Ferroviaria; Internacional; Gremio; Cruzeiro; Atletico Mineiro; Fluminense; Botafogo; Bahia; Kindermann; Avai; Real Brasilia; Iranduba
+
+Q: Name a Scottish club with a women's team.
+Glasgow City; Celtic; Rangers; Hibernian=Hibs; Hearts=Heart of Midlothian; Aberdeen; Spartans; Motherwell; Partick Thistle; Hamilton Academical=Hamilton; Dundee United; Montrose
+
+Q: Name a club in Japan's WE League.
+INAC Kobe Leonessa=INAC Kobe; Urawa Reds=Urawa Red Diamonds Ladies=Urawa; Tokyo Verdy Beleza=Nippon TV Beleza=Beleza; Sanfrecce Hiroshima Regina=Sanfrecce Hiroshima; Albirex Niigata; JEF United Chiba=JEF United; Omiya Ardija Ventus=Omiya Ardija; Mynavi Sendai=Vegalta Sendai=Sendai; Cerezo Osaka; Chifure AS Elfen Saitama=Elfen Saitama; Nojima Stella; AC Nagano Parceiro=Nagano Parceiro
+
+Q: Name the nickname of a women's national football team.
+Lionesses; Matildas; Football Ferns=Ferns; Super Falcons; Banyana Banyana; Reggae Girlz; Nadeshiko=Nadeshiko Japan; Les Bleues; La Roja; Oranje Leeuwinnen=Oranje; Steel Roses; Selecao; Azzurre; Copper Queens; Black Queens; Atlas Lionesses; Indomitable Lionesses; Las Cafeteras; Girls in Green; Filipinas; Les Grenadieres; Las Canaleras; Taegeuk Ladies; Red Flames; Albiceleste; Nati; Blagult
+
+Q: Name a women's football competition or trophy.
+Women's World Cup=World Cup; Women's Champions League=Champions League=UWCL; Women's Euros=Euros=European Championship; Olympics=Olympic Games; Women's Super League=WSL=Barclays WSL; Women's FA Cup=FA Cup; League Cup=Conti Cup=Continental Cup=Subway Cup; NWSL Championship=NWSL; NWSL Challenge Cup=Challenge Cup; SheBelieves Cup; Arnold Clark Cup; Women's Nations League=Nations League; Finalissima; Algarve Cup; Copa America Femenina=Copa America; Women's Africa Cup of Nations=WAFCON; AFC Women's Asian Cup=Asian Cup; Concacaf W Gold Cup=Gold Cup; Concacaf W Championship; Liga F; Frauen-Bundesliga; Division 1 Feminine=D1 Arkema=Arkema Premiere Ligue; Damallsvenskan; A-League Women=W-League; Tournoi de France; Pinatar Cup; Cyprus Cup; Under-20 Women's World Cup=U-20 World Cup; Under-17 Women's World Cup=U-17 World Cup; Women's Community Shield=Community Shield; Coppa Italia; Supercopa; OFC Women's Nations Cup
+
+Q: Name an award in women's football.
+Ballon d'Or Feminin=Ballon d'Or; The Best FIFA Women's Player=The Best; Golden Boot; Golden Ball; Golden Glove; Player of the Match; Best Young Player=Young Player of the Year; PFA Players' Player of the Year=PFA Player of the Year; FWA Footballer of the Year; UEFA Women's Player of the Year; NWSL MVP=MVP; Kopa Trophy; Yashin Trophy; Marta Award; Goal of the Season; Goal of the Tournament; Manager of the Year=Coach of the Year; Fair Play Award; BBC Women's Footballer of the Year; Golden Shoe; Player of the Month; Team of the Season; Rookie of the Year; Defender of the Year; Goalkeeper of the Year
+
+Q: Name a stadium or ground where women's football is played.
+Wembley; Emirates Stadium=Emirates; Stamford Bridge; Old Trafford; Kingsmeadow; Meadow Park; Joie Stadium=Academy Stadium; Leigh Sports Village; Anfield; Camp Nou=Spotify Camp Nou; Estadi Johan Cruyff=Johan Cruyff Stadium; Parc OL=Groupama Stadium=Parc Olympique Lyonnais; Parc des Princes; Providence Park; Audi Field; Snapdragon Stadium; BMO Stadium; Stadium Australia=Accor Stadium; Eden Park; Brisbane Stadium=Suncorp Stadium=Lang Park; AOK Stadion; Villa Park; Bramall Lane; Prenton Park; Brisbane Road; Tottenham Hotspur Stadium; Etihad Stadium; Rose Bowl; BC Place; Wanda Metropolitano=Metropolitano; St Jakob-Park
+
+Q: Name a city that hosted matches at the Women's Euros in 2022 or 2025.
+London; Basel; Manchester; Brighton; Sheffield; Southampton; Milton Keynes; Geneva; Zurich; Bern; Rotherham; Leigh; Lucerne; St. Gallen=St Gallen; Thun; Sion
+
+Q: Name a city that is or has been home to a WSL or NWSL team.
+London; Manchester; Liverpool; Portland; Orlando; Los Angeles; Kansas City; Washington=Washington DC; San Diego; Seattle; Chicago; Birmingham; Brighton; Houston; Leicester; Louisville; New York=New Jersey=Harrison; Boston; Salt Lake City=Sandy; San Jose=San Francisco; Denver; Reading; Bristol; Raleigh=Cary; Sunderland; Doncaster; Nottingham; Lincoln; Yeovil; Rochester
+
+Q: Name a famous owner, founder or celebrity investor in women's football.
+Natalie Portman=Portman; Serena Williams=Serena; Alexis Ohanian=Ohanian; Jennifer Garner=Garner; Eva Longoria=Longoria; Billie Jean King=Billie Jean; Mia Hamm=Hamm; Abby Wambach=Wambach; Julie Foudy=Foudy; Michelle Kang=Kang; Ryan Reynolds=Reynolds; Rob McElhenney=McElhenney; Uzo Aduba=Aduba
+
+Q: Name a film or TV show about women's football.
+Bend It Like Beckham; She's the Man; Copa 71; Under Pressure; LFG; Lionesses: How Football Came Home; Gracie; Dare to Dream; Offside
+
+Q: Name a TV channel or streaming service that shows women's football.
+BBC; ITV; Sky Sports=Sky; DAZN; ESPN; CBS; Paramount+=Paramount Plus; Fox; Amazon Prime=Prime Video; Netflix; TNT Sports; Channel 4; Optus Sport; Channel 7=Seven; YouTube; ION; Eurosport; BT Sport; TSN; Telemundo; NBC; Peacock; Canal+; Movistar
+
+Q: Name a US college soccer program known for producing women's stars.
+North Carolina=UNC=Tar Heels; Stanford; UCLA; Florida State; Penn State; Virginia; Santa Clara; Notre Dame; Portland; USC; Duke; Florida; Texas A&M; BYU; Clemson; Wake Forest; UConn; Georgetown; Arkansas; Cal=California
+
+Q: Name something associated with England winning Euro 2022.
+Chloe Kelly=Kelly; Wembley; Sarina Wiegman=Wiegman; Germany; Beth Mead=Mead; Leah Williamson=Williamson; Ella Toone=Toone; Alessia Russo=Russo=backheel; Extra Time; Trafalgar Square; Sweet Caroline; Shirt Celebration=sports bra; Golden Boot; It's Coming Home=Football's Coming Home=Three Lions; Record Crowd; Press Conference; Mary Earps=Earps; Millie Bright=Bright; Jill Scott=Scott; Lina Magull=Magull; Eight Nil=8-0=8 0
+
+Q: Name a country where women's football was banned at some point.
+England; Brazil; Germany=West Germany; Scotland; France; Afghanistan
+
+Q: Name an issue women footballers have campaigned about.
+Equal Pay; ACL Injuries=ACL; Kit Design=kits; Dark Shorts=white shorts; Maternity Rights=maternity leave; Media Coverage=visibility; Pitch Quality=artificial turf=turf; Sexism; Racism; Online Abuse=abuse; Facilities; Minimum Salary=minimum wage; Contracts; Safeguarding; Concussion; Girls' PE=school PE; Prize Money; Travel Conditions=charter flights; Scheduling=fixture congestion; Boot Design=boots; Pregnancy; Consent; LGBTQ Rights
+
+Q: Name an injury common in football.
+ACL=anterior cruciate ligament=ACL tear; Ankle Sprain=sprained ankle; Hamstring=hamstring strain; Concussion; Meniscus Tear=meniscus; Groin Strain=groin; Calf Strain=calf; Achilles=Achilles tendon; Broken Leg; Knee Injury=knee; Metatarsal=broken foot; MCL; Stress Fracture; Shin Splints; Quad Strain=thigh strain; Dislocated Shoulder; Back Injury; Hip Injury; Broken Nose; Cramp
+
+Q: Name a type of goal celebration.
+Backflip; Knee Slide; Shirt Off=taking off your shirt; Arms Outstretched; Dance; Cartwheel; Somersault; Heart Hands; Pointing to the Sky; Kissing the Badge; Corner Flag; Shush=finger to lips; Tea Sip; Airplane=aeroplane; Dab; Rocking the Baby=baby rock; Robot; Fist Pump; Group Hug=team hug; Bow; Running to the Fans; Salute; Handshake Routine; Belly Slide
+
+Q: Name a skill move a player might use to beat a defender.
+Nutmeg; Step Over; Cruyff Turn; Elastico=flip flap; Rainbow Flick; Drag Back; Maradona Turn=roulette; La Croqueta; Body Feint=feint; Chop; Sombrero; Scissors; Ronaldo Chop; Heel Flick; Dummy; Shoulder Drop; McGeady Spin; Hocus Pocus; Seal Dribble; Rabona
+
+Q: Name a sports brand that makes football kit or boots.
+Nike; Adidas; Puma; Under Armour; New Balance; Umbro; Hummel; Kappa; Mizuno; Joma; Macron; Castore; Le Coq Sportif; Lotto; Diadora; Asics; Errea; Kelme; Uhlsport; Reebok; Ida Sports=Ida; Skechers
+
+Q: Name something you'd find in a footballer's kit bag.
+Boots; Shin Pads=shin guards; Socks; Water Bottle; Towel; Shirt=jersey; Shorts; Gloves; Hair Ties=hair bands=bobbles; Sports Bra; Tape; Deodorant; Headphones; Snacks; Ice Pack; Phone; Energy Drink; Foam Roller; Spare Laces=laces; Sliders; Mouthguard; Hairbrush; Sunscreen; Hoodie; Protein Bar; Wallet; Keys; Plasters; Vaseline
+
+Q: Name something sold at a football match.
+Programme=program; Scarf; Shirt; Pie; Hot Dog; Burger; Chips=fries; Beer; Coffee; Tea; Water; Popcorn; Hat; Flag; Badge=pin; Sweets=candy; Bovril; Soft Drink=soda; Pretzel; Nachos; Ice Cream; Foam Finger; Poster; Hot Chocolate; Sausage Roll
+
+Q: Name a song or chant sung by football fans.
+Sweet Caroline; It's Coming Home=Three Lions=Football's Coming Home; Seven Nation Army; Ole Ole Ole; I Believe That We Will Win; Freed from Desire; You'll Never Walk Alone; Glory Glory; Go West; Vindaloo; Hey Jude; Aussie Aussie Aussie=Oi Oi Oi; We Will Rock You; Here We Go; Que Sera Sera; Allez Allez Allez; Viva la Vida; Volare; Blue Moon; Mr Brightside
+
+Q: Name something a footballer does to warm up.
+Stretching=stretch; Jogging=jog; Rondo=rondos; Passing=passing drills; Sprints=sprinting; Lunges; High Knees; Butt Kicks; Shooting=shooting practice; Dynamic Stretching; Leg Swings; Skipping; Foam Rolling; Listening to Music=music; Ladder Drills=ladders; Shuttle Runs; Jumping Jacks=star jumps; Keepie-uppies=keepy uppies=juggling; Crossing; Squats; Resistance Bands=bands
+
+Q: Name a job at a football club (other than player).
+Manager=head coach; Physio=physiotherapist; Kit Manager=kit man; Groundskeeper=groundsman; Scout; Assistant Coach=assistant manager; Goalkeeping Coach; Doctor=club doctor; Nutritionist; Chairman=owner=chairwoman; Director of Football=sporting director; Analyst=performance analyst; Fitness Coach=strength and conditioning coach; Press Officer=media officer; Chef; Steward; Mascot; Psychologist; Chief Executive=CEO; Ticket Office; Youth Coach=academy coach; Masseuse=massage therapist
+
+Q: Name a reason a football match might be stopped or delayed.
+Injury; Rain; Lightning=thunderstorm; VAR=VAR check; Pitch Invader; Floodlight Failure=floodlights; Fog; Snow; Water Break=cooling break=drinks break; Medical Emergency; Crowd Trouble=fan trouble; Fireworks; Waterlogged Pitch=waterlogged; Heat; Flares; Goal Line Technology=goal line; Broken Goal=broken net; Dog on the Pitch; Power Cut; Frozen Pitch

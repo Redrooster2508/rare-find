@@ -500,5 +500,5 @@ function settingsLabel(s) {
   const timer = s.timer ? `${s.timer}s per answer` : "no timer";
   return s.mode === "theme"
     ? `Theme rounds: ${s.themeNames.join(", ")} · ${timer}`
-    : `${s.rounds} mixed round${s.rounds === 1 ? "" : "s"} of 7 (one question per theme) · ${timer}`;
+    : `${s.rounds} mixed round${s.rounds === 1 ? "" : "s"} of 7 (each from a different theme) · ${timer}`;
 }
